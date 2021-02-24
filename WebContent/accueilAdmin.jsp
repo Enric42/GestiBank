@@ -21,9 +21,8 @@ pageEncoding="ISO-8859-1"%>
 
 <h1>Gestion des conseillers</h1>
 	<ul>
-	<li>Tous</li>
-	<li>Nouveaux</li>
-	<li>Existants</li>
+	<li><a href = "/GestiBank/admin/listeConseillers.jsp">Editer</a></li>
+	<li><a href = "/GestiBank/admin/ajout-conseiller.jsp">Ajouter</a></li>
 	</ul> </br>
 
 <h1>Gestion des nouveaux clients</h1>
