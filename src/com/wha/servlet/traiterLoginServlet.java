@@ -38,6 +38,8 @@ public class traiterLoginServlet extends HttpServlet {
 		
 		
 		
+		
+		
 		String identifiant = (String) request.getParameter("login");			// Utilisateur à saisir
 		String motDePasse = (String) request.getParameter("motDePasse");		// Mot de passe à saisir
 		

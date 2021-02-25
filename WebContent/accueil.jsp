@@ -30,9 +30,6 @@ pageEncoding="ISO-8859-1"%>
 <td align = "right"><input type = "submit" value = "Se connecter"></td>
 </tr>
 
-<a href="${pageContext.request.contextPath}/inscription.jsp"> Inscription</a>
-
-
 </table>
 
 </form>
