@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -10,8 +13,9 @@
 
 	<h1>Bienvenue dans l'espace de connexion de GestiBank</h1>
 	</br>
-	
+	<!--  connection admin -->
 <form action = "traiterlogin" method = "POST">
+<input type="hidden" id="whois" value="3">
 <table border = "0">
 <tr>
 <td align = "center" width = "200" > Identifiant : </td>

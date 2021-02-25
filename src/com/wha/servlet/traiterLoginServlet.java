@@ -23,6 +23,21 @@ public class traiterLoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		
+		//recuperation whois (client)
+		//requete dynamique sur la table
+		//chercher table client dao -> requete 
+		//affecte ton client etc session setParameter("whois", (client))
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		String identifiant = (String) request.getParameter("login");			// Utilisateur à saisir
 		String motDePasse = (String) request.getParameter("motDePasse");		// Mot de passe à saisir
 		

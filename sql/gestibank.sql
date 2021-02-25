@@ -87,3 +87,7 @@ create table client_has_beneficiaires(
 	foreign key (id_utilisateur) references  client(id_utilisateur)
 
 )
+create table administrateur(
+	id_utilisateur int primary key,
+	foreign key (id_utilisateur) references utilisateurs (id)
+)
