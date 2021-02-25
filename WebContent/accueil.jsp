@@ -4,19 +4,20 @@ pageEncoding="ISO-8859-1"%>
 <html>
 
 <head>
-<meta http-equiv = "Content-Type" content = "text/html ; charset = iso-8859-1">
+<meta http-equiv = "Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 
 <body>
 
 <a href = "/GestiBank/accueil.jsp">Accueil</a>
+<a href = "<%=request.getContextPath() + "/inscription.jsp"%>">Inscription</a>
 
 	<h1>Bienvenue dans l'espace de connexion de GestiBank</h1>
-	</br>
+
 	<!--  connection admin -->
 <form action = "traiterlogin" method = "POST">
 <input type="hidden" id="whois" value="3">
-<table border = "0">
+<table>
 <tr>
 <td align = "center" width = "200" > Identifiant : </td>
 <td><input type = "text" name = "login" maxLength = "20" size = "20" value = ""></td>

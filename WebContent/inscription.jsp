@@ -12,7 +12,7 @@
 <h1> Formulaire </h1>
 
 <form action = "traiterlogin" method = "POST">
-<table border = "0">
+<table>
 <tr>
 <td align = "center" width = "200" > Nom : </td>
 <td><input type = "text" name = "login" maxLength = "20" size = "20" value = ""></td>

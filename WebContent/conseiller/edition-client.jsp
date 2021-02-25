@@ -5,7 +5,7 @@ pageEncoding="ISO-8859-1"%>
 <html>
 
 <head>
-<meta http-equiv = "Content-Type" content="text/html; charset="ISO-8859-1">
+<meta http-equiv = "Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Edition de clients</title>
 </head>
@@ -13,11 +13,11 @@ pageEncoding="ISO-8859-1"%>
 
 <body>
 
-<a href = "/GestiBank/accueilConseiller.jsp">Accueil</a> </br>
+<a href = "/GestiBank/accueilConseiller.jsp">Accueil</a>
 <a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a>
 
 <% String pseudo = (String) session.getAttribute("utilisateur");%>
-	<h2>Bonjour, <%= pseudo %></h2> </br>
+	<h2>Bonjour, <%= pseudo %></h2>
 
 <form action = "traiterlogin" method = "POST">
 <table border = "0">
@@ -47,8 +47,8 @@ pageEncoding="ISO-8859-1"%>
 
 </form>
 
-Enregistrer </br>
-<a href = "/GestiBank/conseiller/listeClients.jsp">Annuler</a></br>
+Enregistrer
+<a href = "/GestiBank/conseiller/listeClients.jsp">Annuler</a>
 <a href = "/GestiBank/conseiller/listeClients.jsp">Liste des clients</a>
 
 
