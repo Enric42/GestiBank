@@ -1,3 +1,5 @@
+package com.wha.entities;
+
 public class CompteBeneficiaire implements ICompte {
 
 	private String libelle;

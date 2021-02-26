@@ -1,3 +1,5 @@
+package com.wha.entities;
+
 public abstract class AUtilisateur {
 
 	private String login;

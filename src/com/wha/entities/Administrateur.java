@@ -1,3 +1,5 @@
+package com.wha.entities;
+
 public class Administrateur extends AUtilisateur {
 
 	public void creerConseiller(Conseiller conseiller) {

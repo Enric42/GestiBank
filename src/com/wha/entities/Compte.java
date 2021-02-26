@@ -1,3 +1,5 @@
+package com.wha.entities;
+
 public class Compte implements ICompte {
 
 	private Client client;

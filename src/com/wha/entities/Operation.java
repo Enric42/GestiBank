@@ -1,3 +1,5 @@
+package com.wha.entities;
+
 import java.util.Date;
 
 public class Operation implements IOperation {

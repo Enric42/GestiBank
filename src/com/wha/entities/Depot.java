@@ -1,44 +1,46 @@
+package com.wha.entities;
+
 import java.util.Date;
 
-public class Retrait implements IOperation, IDebit {
-	private final static String LIBELLE = "Retrait";
+public class Depot implements IOperation, ICredit {
+	private final static String LIBELLE = "Dépot";
 
-	private Compte compteSource;
+	private Compte compteDestination;
 	private Float montant;
 	private Date date;
 
 	public Boolean isCreditPourCompte(Compte compte) {
-		return false;
-	}
-
-	public Boolean isDebitPourCompte(Compte compte) {
 		return true;
 	}
 
-	public Float getMontantCreditPourCompte(Compte compte) {
-		return 0f;
+	public Boolean isDebitPourCompte(Compte compte) {
+		return false;
 	}
 
-	public Float getMontantDebitPourCompte(Compte compte) {
+	public Float getMontantCreditPourCompte(Compte compte) {
 		return montant;
 	}
 
+	public Float getMontantDebitPourCompte(Compte compte) {
+		return 0f;
+	}
+
 	public Float getMontantPourCompte(Compte compte) {
-		return -montant;
+		return montant;
 	}
 	
 	// Getters & Setters
 
-	public Compte getCompteSource() {
-		return compteSource;
+	public Compte getCompteDestination() {
+		return compteDestination;
 	}
 
-	public void setCompteSource(Compte compteSource) {
-		this.compteSource = compteSource;
+	public void setCompteDestination(Compte compteDestination) {
+		this.compteDestination = compteDestination;
 	}
-
+	
 	public Float getMontant() {
-		return -getMontantDebit();
+		return getMontantCredit();
 	}
 
 	public void setMontant(Float montant) {
@@ -56,22 +58,22 @@ public class Retrait implements IOperation, IDebit {
 	public String getLibelle() {
 		return LIBELLE;
 	}
-
+	
 	public void setLibelle(String libelle) {}
 
 	public Float getMontantDebit() {
-		return montant;
-	}
-
-	public Float getMontantCredit() {
 		return 0f;
 	}
 
-	public Boolean getIsCredit() {
-		return false;
+	public Float getMontantCredit() {
+		return montant;
 	}
-
-	public Boolean getIsDebit() {
+	
+	public Boolean getIsCredit() {
 		return true;
+	}
+	
+	public Boolean getIsDebit() {
+		return false;
 	}
 }
