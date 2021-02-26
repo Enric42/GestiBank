@@ -15,12 +15,10 @@ public class Conseiller extends AUtilisateur implements IEntitePhysique {
 	private List<Client> clients = new ArrayList<Client>();
 
 	public void ouvrirCompteClient(Client client) {
-		// TODO
 	}
 
 	@Override
 	public void accederEspacePersonnalise() {
-		// TODO Auto-generated method stub
 		
 	}
 	

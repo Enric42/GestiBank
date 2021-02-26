@@ -1,0 +1,131 @@
+/* Animation logo accueil */
+@keyframes spring { 
+  0% { transform: scale(1) translateY(0); }
+  3% { transform: scale(1.2, 0.6); }
+  5% { transform: scale(0.8, 1.1) translateY(-10px); }
+  8% { transform: scale(1) translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+.spring {
+  animation: spring 12s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+/*---------FIN---------*/
+
+/* Animation logo GestiBank */
+@keyframes gesti {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
+
+gesti {
+  font-family: helvetica, arial, sans-serif;
+  background-color: #2e2e31;
+}
+
+gesti {
+  color: #fffbf1;
+  text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
+  font-size: 80px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: -3px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+gesti:before,
+gesti:after {
+  content: '';
+  padding: .9em .4em;
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  top: 50%;
+  display: block;
+  border: 15px solid red;
+  transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  animation: 10s infinite alternate ease-in-out tipsy;
+}
+
+gesti:before {
+  border-color: #d9524a #d9524a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+
+gesti:after {
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
+  box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
+}
+/*---------FIN---------*/
+
+/* Animation Bubules marrantes */
+    .circle {
+      --bgc: cornflowerblue;
+      --w: 20px;
+      align-items: center;
+      background-color: var(--bgc);
+      border-radius: 50%;
+      color: #FFF;
+      display: flex;
+      height: var(--w);
+      justify-content: center;
+      margin-bottom: 1rem;
+      width: var(--w);
+      margin-left: 50%;
+    }
+
+    .a-slide {
+      --animdur: 1s;
+      --animn: slide;
+      animation-iteration-count: 2e;
+    }
+    [data-animation] {
+      animation: var(--animn, none) var(--animdur, 0s) var(--animtf, linear) var(--animdel, 0s) var(--animic, infinite) var(--animdir, alternate) var(--animfm, none) var(--animps, running);
+    }
+    
+    [data-reduced-motion]:checked ~ [data-animation="one"] {
+      --animic: 1;
+    }
+    [data-reduced-motion]:checked ~ [data-animation="two"] {
+      --animic: 3;
+    }
+    [data-reduced-motion]:checked ~ [data-animation="three"] {
+      --animic: 6;
+    }
+    [data-reduced-motion]:checked ~ [data-animation="four"] {
+      --animic: 9;
+    }
+    [data-reduced-motion]:checked ~ [data-animation="five"] {
+      --animic: 12;
+    }
+
+    [data-reduced-motion]:checked + label::before {
+      background-color: cornflowerblue;
+    }
+
+    @keyframes opacity {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes slide {
+      from { margin-left: 0%; }
+      to { margin-left: calc(100% - var(--w, 20px)); }
+    }
+    /*---------FIN---------*/

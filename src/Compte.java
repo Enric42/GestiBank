@@ -8,7 +8,6 @@ public class Compte implements ICompte {
 	private Float faciliteCaisse;
 	
 	public void effectuerVirement(Float montant, ICompte compteDestination, String libelle) {
-		// TODO
 		
 	}
 	

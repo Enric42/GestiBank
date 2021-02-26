@@ -20,28 +20,23 @@ public class Client extends AUtilisateur implements IEntitePhysique {
 	}
 
 	public Compte consulterCompte(String rib) {
-		// TODO
 		return null;
 	}
 
 	private void ajouterCompteBeneficiaire(CompteBeneficiaire comtpeBeneficiaire) {
-		// TODO
 		
 	}
 	
 	public void supprimerCompteBeneficiaire(String RIB) {
-		// TODO
 		
 	}
 
 	public void consulterComptes() {
-		// TODO
 		
 	}
 
 	@Override
 	public void accederEspacePersonnalise() {
-		// TODO Auto-generated method stub
 		
 	}
 	

@@ -5,7 +5,7 @@ pageEncoding="ISO-8859-1"%>
 <html>
 
 <head>
-<meta http-equiv = "Content-Type" content="text/html; charset="ISO-8859-1">
+<meta http-equiv = "Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Liste des clients GestiBank</title>
 </head>
@@ -13,11 +13,11 @@ pageEncoding="ISO-8859-1"%>
 
 <body>
 
-<a href = "/GestiBank/accueilAdmin.jsp">Accueil</a> </br>
+<a href = "/GestiBank/accueilAdmin.jsp">Accueil</a>
 <a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a>
 
 <% String pseudo = (String) session.getAttribute("utilisateur");%>
-	<h2>Bonjour, <%= pseudo %></h2> </br>
+	<h2>Bonjour, <%= pseudo %></h2>
 
 <h1>Gestion des conseillers</h1>
 	<ul>
@@ -35,17 +35,17 @@ pageEncoding="ISO-8859-1"%>
             <td>Action</td>
         </tr>
         <tr>
-            <td>Paul Hamploa (25)</a></td>
+            <td>Paul Hamploa (25)</td>
             <td>42 chemin des frères pauvres</td>
             <td>Editer  Supprimer</td>
         </tr>
         <tr>
-            <td>Camille Onette (35)</a></td>
+            <td>Camille Onette (35)</td>
             <td>1 route des foins</td>
             <td>Editer  Supprimer</td>
         </tr>
               <tr>
-            <td>Alain Deloin (37)</a></td>
+            <td>Alain Deloin (37)</td>
             <td>3 avenue des inconnus</td>
             <td>Editer  Supprimer</td>
         </tr>
