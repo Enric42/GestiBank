@@ -8,64 +8,57 @@
 }
 
 .spring {
-  animation: spring 12s;
+  animation: spring 9s;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
 }
 /*---------FIN---------*/
 
 /* Animation logo GestiBank */
-@keyframes gesti {
+
+@keyframes ease-out-scale {
   0% {
-    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    opacity: 0;
+    transform: scale(0)
   }
   100% {
-    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    opacity: 0;
+    transform: translate(0, -40%)
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)
   }
 }
 
-gesti {
-  font-family: helvetica, arial, sans-serif;
-  background-color: #2e2e31;
+.anim {
+  opacity: 0
+}
+.anim-1 {
+  animation: slide-in-top 0.4s 2.5s 1 ease-in-out forwards
+}
+.anim-2 {
+  animation: slide-in-top 0.4s 3s 1 ease-in-out forwards
+}
+.anim-3 {
+  animation: slide-in-top 0.4s 3.5s 1 ease-in-out forwards
+}
+.anim-4 {
+  animation: slide-in-top 0.4s 4s 1 ease-in-out forwards
+}
+.anim-5 {
+  animation: slide-in-top 0.4s 4.5s 1 ease-in-out forwards
+}
+.anim-6 {
+  animation: slide-in-top 0.4s 1s 1 ease-in-out forwards
 }
 
-gesti {
-  color: #fffbf1;
-  text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
-  font-size: 80px;
-  font-weight: bold;
-  text-decoration: none;
-  letter-spacing: -3px;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-gesti:before,
-gesti:after {
-  content: '';
-  padding: .9em .4em;
-  position: absolute;
-  left: 50%;
-  width: 100%;
-  top: 50%;
-  display: block;
-  border: 15px solid red;
-  transform: translateX(-50%) translateY(-50%) rotate(0deg);
-  animation: 10s infinite alternate ease-in-out tipsy;
-}
-
-gesti:before {
-  border-color: #d9524a #d9524a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
-  z-index: -1;
-}
-
-gesti:after {
-  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
-  box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
-}
 /*---------FIN---------*/
 
 /* Animation Bubules marrantes */
@@ -81,7 +74,7 @@ gesti:after {
       justify-content: center;
       margin-bottom: 1rem;
       width: var(--w);
-      margin-left: 50%;
+      margin-left: 49.5%;
     }
 
     .a-slide {
@@ -109,23 +102,106 @@ gesti:after {
       --animic: 12;
     }
 
-    [data-reduced-motion]:checked + label::before {
-      background-color: cornflowerblue;
-    }
-
-    @keyframes opacity {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.6;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
     @keyframes slide {
       from { margin-left: 0%; }
       to { margin-left: calc(100% - var(--w, 20px)); }
     }
-    /*---------FIN---------*/
+/*---------FIN---------*/
+
+/*-------- Mise en forme ---------*/   
+.form-group{
+    padding: 2%;
+}
+
+.register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 3%;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 1%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 20%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 8%;
+    margin-top: 8%;
+}
+
+.btn{
+	margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+
+.btn-success {
+	background: #198754;
+    color: #fff;
+}
+.btn-success:hover {
+    background: #36eb97;
+    color: black;
+}
+
+.btn-reset {
+    background: #0062cc;
+    color: #fff;
+}
+.btn-reset:hover {
+    background: #7e807e;
+    color: black;
+}
+
+.f-left {
+	float: left;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+/*---------FIN---------*/
