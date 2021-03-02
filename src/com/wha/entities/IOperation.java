@@ -1,3 +1,5 @@
+package com.wha.entities;
+
 import java.util.Date;
 
 public interface IOperation {
@@ -18,4 +20,7 @@ public interface IOperation {
 	public Float getMontantCreditPourCompte(Compte compte);
 	public Float getMontantDebitPourCompte(Compte compte);
 	public Float getMontantPourCompte(Compte compte);
+	
+	//client < gestionnaire < admin 
+	
 }

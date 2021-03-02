@@ -1,3 +1,5 @@
+package com.wha.entities;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,8 +13,11 @@ public class Conseiller extends AUtilisateur implements IEntitePhysique {
 	private String telephone;
 	private String mail;
 	private String adresse;
-	private ESituationMatrimuniale situationMatrimoniale;
+	private int situationMatrimoniale;
+	
 	private List<Client> clients = new ArrayList<Client>();
+	
+	private List<Client> prospects = new ArrayList<Client>();
 
 	public void ouvrirCompteClient(Client client) {
 	}
@@ -80,11 +85,11 @@ public class Conseiller extends AUtilisateur implements IEntitePhysique {
 		this.mail = mail;
 	}
 
-	public ESituationMatrimuniale getSituationMatrimoniale() {
+	public int getSituationMatrimoniale() {
 		return situationMatrimoniale;
 	}
 
-	public void setSituationMatrimoniale(ESituationMatrimuniale situationMatrimoniale) {
+	public void setSituationMatrimoniale(int situationMatrimoniale) {
 		this.situationMatrimoniale = situationMatrimoniale;
 	}
 

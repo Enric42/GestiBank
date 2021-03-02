@@ -10,7 +10,7 @@
 
 Votre demande a bien été prise en compte
 
-<a href = "/GestiBank/accueil.jsp">Retour à l'accueil</a>
+<a href = "<%= request.getContextPath()+ "/accueil.jsp" %>">Retour à l'accueil</a>
 
 </p>
 

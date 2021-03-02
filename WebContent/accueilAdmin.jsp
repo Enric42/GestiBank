@@ -13,13 +13,12 @@ pageEncoding="ISO-8859-1"%>
 
 <body>
 
-<a href = "/GestiBank/accueilAdmin.jsp">Accueil</a>
+<a href = "<%=request.getContextPath() + "/accueilAdmin.jsp" %>">Accueil</a>
 <a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a>
 
-<% String pseudo = (String) session.getAttribute("utilisateur");%>
-	<h2>Bonjour, <%= pseudo %></h2>
-
-<h1>Gestion des conseillers</h1>
+	<% String pseudo = (String) session.getAttribute("utilisateur");%>
+	
+	<h1>Gestion des conseillers</h1>
 	<ul>
 	<li>Tous</li>
 	<li><a href = "/GestiBank/admin/listeConseillers.jsp">Editer</a></li>

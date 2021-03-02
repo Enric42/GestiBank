@@ -1,5 +1,8 @@
+package com.wha.entities;
+
 import java.util.Date;
 
+//besoins admin + gestion 
 public class Virement implements IOperation, ICredit, IDebit{
 
 	private Compte compteSource;
@@ -7,7 +10,17 @@ public class Virement implements IOperation, ICredit, IDebit{
 	private Float montant;
 	private Date date;
 	private String libelle;
-
+	
+	private boolean isCredit = true;
+	
+	public Virement() {
+		//cree ton obj -> valeur
+		//isDebit de Ioperation -> true or false
+		//Compte courant -> test
+	}
+	
+	//besoins client
+	
 	public Boolean isCreditPourCompte(Compte compte) {
 		return compteDestination.getRib().equals(compte.getRib());
 	}
@@ -51,7 +64,7 @@ public class Virement implements IOperation, ICredit, IDebit{
 	}
 
 	public void setMontant(Float montant) {
-		
+		this.montant = montant;
 	}
 
 	public Date getDate() {
@@ -74,15 +87,17 @@ public class Virement implements IOperation, ICredit, IDebit{
 		return montant;
 	}
 
-	public Float getMontantCredit() {
-		return montant;
-	}
-
 	public Boolean getIsCredit() {
 		return true;
 	}
 
 	public Boolean getIsDebit() {
 		return true;
+	}
+
+	@Override
+	public Float getMontantCredit() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

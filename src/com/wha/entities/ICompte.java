@@ -1,3 +1,5 @@
+package com.wha.entities;
+
 public interface ICompte {
 
 	public String getRib();

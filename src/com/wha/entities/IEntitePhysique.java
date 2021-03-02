@@ -1,3 +1,5 @@
+package com.wha.entities;
+
 public interface IEntitePhysique {
 	
 	public String getAdresse();
@@ -10,6 +12,6 @@ public interface IEntitePhysique {
 	public void setTelephone(String telephone);
 	public String getMail();
 	public void setMail(String mail);
-	public ESituationMatrimuniale getSituationMatrimoniale();
-	public void setSituationMatrimoniale(ESituationMatrimuniale situationMatrimoniale);
+	public int getSituationMatrimoniale();
+	public void setSituationMatrimoniale(int situationMatrimoniale);
 }

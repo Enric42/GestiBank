@@ -1,3 +1,5 @@
+package com.wha.entities;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +11,25 @@ public class Client extends AUtilisateur implements IEntitePhysique {
 	private String mail;
 	private String adresse;
 	private Boolean isValid;
-	private ESituationMatrimuniale situationMatrimoniale;
+	private int situationMatrimoniale;
 	
 	private Conseiller conseiller;
 	private List<CompteBeneficiaire> comptesBenificiaires = new ArrayList<CompteBeneficiaire>();
+	
 	private List<Compte> comptes = new ArrayList<Compte>();
+	
+	public Client (int id, String nom, String password, String prenom, String telephone, String mail, String adresse, Boolean isValid, int situation) {
+		this.setId(id);
+		this.setLogin(nom, prenom);
+		this.setPassword(password);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setTelephone(telephone);
+		this.setMail(mail);
+		this.setAdresse(adresse);
+		this.setIsValid(isValid);
+		this.setSituationMatrimoniale(situation);
+	}
 	
 	public void effectuerVirement() {
 		
@@ -98,11 +114,11 @@ public class Client extends AUtilisateur implements IEntitePhysique {
 		this.mail = mail;
 	}
 
-	public ESituationMatrimuniale getSituationMatrimoniale() {
+	public int getSituationMatrimoniale() {
 		return situationMatrimoniale;
 	}
 
-	public void setSituationMatrimoniale(ESituationMatrimuniale situationMatrimoniale) {
+	public void setSituationMatrimoniale(int situationMatrimoniale) {
 		this.situationMatrimoniale = situationMatrimoniale;
 	}
 	
