@@ -13,7 +13,7 @@ public class Conseiller extends AUtilisateur implements IEntitePhysique {
 	private String telephone;
 	private String mail;
 	private String adresse;
-	private ESituationMatrimuniale situationMatrimoniale;
+	private int situationMatrimoniale;
 	
 	private List<Client> clients = new ArrayList<Client>();
 	
@@ -86,11 +86,11 @@ public class Conseiller extends AUtilisateur implements IEntitePhysique {
 		this.mail = mail;
 	}
 
-	public ESituationMatrimuniale getSituationMatrimoniale() {
+	public int getSituationMatrimoniale() {
 		return situationMatrimoniale;
 	}
 
-	public void setSituationMatrimoniale(ESituationMatrimuniale situationMatrimoniale) {
+	public void setSituationMatrimoniale(int situationMatrimoniale) {
 		this.situationMatrimoniale = situationMatrimoniale;
 	}
 

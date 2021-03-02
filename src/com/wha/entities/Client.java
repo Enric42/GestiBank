@@ -11,17 +11,17 @@ public class Client extends AUtilisateur implements IEntitePhysique {
 	private String mail;
 	private String adresse;
 	private Boolean isValid;
-	private ESituationMatrimuniale situationMatrimoniale;
+	private int situationMatrimoniale;
 	
 	private Conseiller conseiller;
 	private List<CompteBeneficiaire> comptesBenificiaires = new ArrayList<CompteBeneficiaire>();
 	
 	private List<Compte> comptes = new ArrayList<Compte>();
 	
-	public Client (int id, String nom, String prenom, String telephone, String mail, String adresse, Boolean isValid, ESituationMatrimuniale situation) {
+	public Client (int id, String nom, String password, String prenom, String telephone, String mail, String adresse, Boolean isValid, int situation) {
 		this.setId(id);
 		this.setLogin(nom, prenom);
-		this.setPassword(null);
+		this.setPassword(password);
 		this.setNom(nom);
 		this.setPrenom(prenom);
 		this.setTelephone(telephone);
@@ -119,11 +119,11 @@ public class Client extends AUtilisateur implements IEntitePhysique {
 		this.mail = mail;
 	}
 
-	public ESituationMatrimuniale getSituationMatrimoniale() {
+	public int getSituationMatrimoniale() {
 		return situationMatrimoniale;
 	}
 
-	public void setSituationMatrimoniale(ESituationMatrimuniale situationMatrimoniale) {
+	public void setSituationMatrimoniale(int situationMatrimoniale) {
 		this.situationMatrimoniale = situationMatrimoniale;
 	}
 	

@@ -1,6 +1,10 @@
 package com.wha.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import com.wha.dao.ClientDao;
+import com.wha.entities.Client;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,24 +28,23 @@ public class traiterLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		
-		//recuperation whois (client)
-		//requete dynamique sur la table
-		//chercher table client dao -> requete 
-		//affecte ton client etc session setParameter("whois", (client))
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		String identifiant = (String) request.getParameter("login");			// Utilisateur à saisir
 		String motDePasse = (String) request.getParameter("motDePasse");		// Mot de passe à saisir
+		String typeUtilisateur = (String) request.getParameter("whois");
+		
+		switch(typeUtilisateur) {
+			case "client":
+				ClientDao clientDao = new ClientDao();
+				Client tmpCli = null;
+				try {
+					tmpCli = clientDao.getClientByLogin(identifiant, motDePasse);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				if(clientDao == null)
+					response.sendRedirect(request.getContextPath() + "/erreur.html");
+				break;
+		}
 		
 		if (identifiant.equals("client") && motDePasse.equals("client"))
 		{

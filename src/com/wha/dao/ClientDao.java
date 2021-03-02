@@ -1,5 +1,6 @@
 package com.wha.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -31,13 +32,25 @@ public class ClientDao implements IDao<Client>{
 		return null;
 	}
 	
-	public String getPasswordByLogin(String login) throws SQLException {
-		String tmp = null;
+	public Client getClientByLogin(String login, String password) throws SQLException {
+		Client tmp = null;
 		ResultSet result = IDao.connect.createStatement().executeQuery(
-				"select password from utilisateurs where login = '" + login + "'"
+				//"select * from utilisateurs where login = '" + login + "'"
+				
+				"select c.*, u.* from utilisateurs u inner join client c on u.id = c.id_utilisateur where u.login = '" + login + "' and u.password = '" + password +  "'"
 			);
 		if(result.next()) {
-			tmp = result.getString("password");
+			tmp = new Client(
+					result.getInt("id_utilisateur"),
+					result.getString("nom"),
+					result.getString("password"),
+					result.getString("prenom"),
+					result.getString("telephone"),
+					result.getString("mail"),
+					result.getString("adresse"),
+					result.getBoolean("isValid"),
+					0
+				);
 		}
 		return tmp;
 	}
@@ -94,12 +107,13 @@ public class ClientDao implements IDao<Client>{
 				listeClients.add(new Client(
 						result.getInt("id_utilisateur"),
 						result.getString("nom"),
+						result.getString("password"),
 						result.getString("prenom"),
 						result.getString("telephone"),
 						result.getString("mail"),
 						result.getString("adresse"),
 						null,
-						null
+						0
 					));
 			}
 		} catch (SQLException e) {
