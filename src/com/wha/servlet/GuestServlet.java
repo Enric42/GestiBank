@@ -28,7 +28,16 @@ public class GuestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String path = request.getRequestURI();
-
+		switch (path) {
+			case "/public/inscription":
+				sInscrire(request, response);
+				break;
+			case "/public/convertir":
+				convertirDevise(request,response);
+				break;
+			default:
+				redirigerPage404(request, response);
+		}
 		// TODO switch
 		/*
 		if (path == "/administrateur/creerConseiller") {
@@ -51,7 +60,7 @@ public class GuestServlet extends HttpServlet {
 		
 	private void sInscrire(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// Champs entité physique
+		// Champs entitï¿½ physique
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String genre = request.getParameter("genre");
@@ -81,8 +90,11 @@ public class GuestServlet extends HttpServlet {
 			requestDispatcher.forward(request, response);
 		}
 		else {
+			String nouvelleAdresse = adresse + "-" + codePostal + "-" + ville;
+			Client client = new Client (nom, prenom, tel, mail, nouvelleAdresse);
 			ClientDao clientDao = new ClientDao();
-			response.sendRedirect(request.getContextPath() + "/inscriptionValidation.jsp");
+			clientDao.createNewClient(client);
+			response.sendRedirect(request.getContextPath() + "/validationInscription.jsp");
 		}
 	}
 	
@@ -91,8 +103,17 @@ public class GuestServlet extends HttpServlet {
 		String deviseEntree = request.getParameter("deviseEntree");
 		String deviseSortie = request.getParameter("deviseSortie");
 		
+		if (deviseEntree == null || deviseEntree.equals("")) {
+			deviseEntree = "EUR";
+		}
+		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/conversionDevise.jsp");
 		requestDispatcher.forward(request, response);
+	}
+	
+	private void redirigerPage404(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("Redirection page 404");
+		response.sendRedirect(request.getContextPath() + "/404.jsp");
 	}
 	
 }
