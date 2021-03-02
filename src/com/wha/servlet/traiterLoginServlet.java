@@ -2,11 +2,13 @@ package com.wha.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.wha.dao.ClientDao;
 import com.wha.dao.ConseillerDao;
 import com.wha.dao.AdministrateurDao;
 import com.wha.entities.Client;
+import com.wha.entities.Compte;
 import com.wha.entities.Conseiller;
 import com.wha.entities.Administrateur;
 
@@ -68,10 +70,10 @@ public class traiterLoginServlet extends HttpServlet {
 			default:
 				ClientDao clientDao = new ClientDao();
 				Client client = null;
+				ArrayList<Compte> listeCompteClient = null;
 				try {
 					client = clientDao.getClientByLogin(identifiant, motDePasse);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				if (client == null) {
@@ -81,7 +83,7 @@ public class traiterLoginServlet extends HttpServlet {
 					HttpSession session = request.getSession(true);
 					session.setAttribute("typeUtilisateur", "client");
 					session.setAttribute("utilisateur", client);
-					System.out.println("Connexion de l'administrateur réussie. Bienvenue " + identifiant);
+					System.out.println("Connexion de l'utilisateur réussie. Bienvenue " + identifiant);
 					response.sendRedirect(request.getContextPath() + "/accueilClient.jsp");
 				}
 		}
