@@ -42,7 +42,7 @@
 
 </form>
 
-<a href = "/GestiBank/validationInscription.jsp">Demander la création d'un compte client</a>
+<a href = "<%= request.getContextPath()+ "/validationInscription.jsp" %>">Demander la création d'un compte client</a>
 
 </body>
 </html>

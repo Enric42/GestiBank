@@ -9,7 +9,7 @@ pageEncoding="ISO-8859-1"%>
 
 <body>
 
-<a href = "/GestiBank/accueil.jsp">Accueil</a>
+<a href = "<%= request.getContextPath()+ "/accueil.jsp" %>">Accueil</a>
 <a href = "<%=request.getContextPath() + "/inscription.jsp"%>">Inscription</a>
 
 	<h1>Bienvenue dans l'espace de connexion de GestiBank</h1>

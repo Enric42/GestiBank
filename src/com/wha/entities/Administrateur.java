@@ -1,6 +1,8 @@
 package com.wha.entities;
 
 public class Administrateur extends AUtilisateur {
+	
+	//seul a assigner prospect
 
 	public void creerConseiller(Conseiller conseiller) {
 		

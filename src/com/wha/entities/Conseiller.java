@@ -14,7 +14,10 @@ public class Conseiller extends AUtilisateur implements IEntitePhysique {
 	private String mail;
 	private String adresse;
 	private ESituationMatrimuniale situationMatrimoniale;
+	
 	private List<Client> clients = new ArrayList<Client>();
+	
+	private List<Client> prospects = new ArrayList<Client>();
 
 	public void ouvrirCompteClient(Client client) {
 		// TODO
@@ -23,7 +26,6 @@ public class Conseiller extends AUtilisateur implements IEntitePhysique {
 	@Override
 	public void accederEspacePersonnalise() {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	// Getters & Setters

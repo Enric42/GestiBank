@@ -15,7 +15,21 @@ public class Client extends AUtilisateur implements IEntitePhysique {
 	
 	private Conseiller conseiller;
 	private List<CompteBeneficiaire> comptesBenificiaires = new ArrayList<CompteBeneficiaire>();
+	
 	private List<Compte> comptes = new ArrayList<Compte>();
+	
+	public Client (int id, String nom, String prenom, String telephone, String mail, String adresse, Boolean isValid, ESituationMatrimuniale situation) {
+		this.setId(id);
+		this.setLogin(nom, prenom);
+		this.setPassword(null);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setTelephone(telephone);
+		this.setMail(mail);
+		this.setAdresse(adresse);
+		this.setIsValid(isValid);
+		this.setSituationMatrimoniale(situation);
+	}
 	
 	public void effectuerVirement() {
 		

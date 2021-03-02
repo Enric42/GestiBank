@@ -4,14 +4,22 @@ public class Compte implements ICompte {
 
 	private Client client;
 	private String rib;
-	private Boolean isValid;
 	private ETypeCompte typeCompte;
 	private Float seuil;
 	private Float faciliteCaisse;
+	private Boolean isValid;
+	
+	public Compte (Client client, String rib, ETypeCompte typeCompte, Float seuil, Float faciliteCaisse, Boolean isValid) {
+		this.setClient(client);
+		this.setRib(rib);
+		this.setTypeCompte(typeCompte);
+		this.setSeuil(seuil);
+		this.setFaciliteCaisse(faciliteCaisse);
+		this.setIsValid(isValid);
+	}
 	
 	public void effectuerVirement(Float montant, ICompte compteDestination, String libelle) {
 		// TODO
-		
 	}
 	
 	// Getters & Setters

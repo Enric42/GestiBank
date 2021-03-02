@@ -1,14 +1,18 @@
 package com.wha.dao.client;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.wha.dao.Database;
 import com.wha.entities.CompteBeneficiaire;
 
 public class CompteBeneficiaireDao {
 
-	public CompteBeneficiaireDao() {
-		
+	private Connection connection;
+	
+	public CompteBeneficiaireDao() throws ClassNotFoundException {
+		this.connection = Database.getInstance();
 	}
 	
 	public List<CompteBeneficiaire> loadCompteBeneficiaireByClientId(Integer clientId) {
