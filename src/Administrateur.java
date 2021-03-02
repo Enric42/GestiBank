@@ -10,7 +10,6 @@ public class Administrateur extends AUtilisateur {
 
 	@Override
 	public void accederEspacePersonnalise() {
-		// TODO Auto-generated method stub
 		
 	}
 }
