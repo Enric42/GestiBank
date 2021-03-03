@@ -24,7 +24,5 @@ pageEncoding="ISO-8859-1"%>
 	</ul>
 	
 
-
-
 </body>
 </html>
