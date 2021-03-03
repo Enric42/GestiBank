@@ -4,3 +4,5 @@
 /.classpath
 /.metadata
 /.settings/org.eclipse.wst.common.component
+/bin/
+/.project
