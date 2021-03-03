@@ -3,8 +3,10 @@ package com.wha.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.wha.dao.ClientDao;
+import com.wha.dao.CompteDao;
 import com.wha.dao.ConseillerDao;
 import com.wha.dao.AdministrateurDao;
 import com.wha.entities.Client;
@@ -70,7 +72,6 @@ public class traiterLoginServlet extends HttpServlet {
 			default:
 				ClientDao clientDao = new ClientDao();
 				Client client = null;
-				ArrayList<Compte> listeCompteClient = null;
 				try {
 					client = clientDao.getClientByLogin(identifiant, motDePasse);
 				} catch (SQLException e) {
@@ -81,6 +82,14 @@ public class traiterLoginServlet extends HttpServlet {
 				}
 				else {
 					HttpSession session = request.getSession(true);
+					CompteDao cpteDao = new CompteDao();
+					List<Compte> comptes = null;
+					try {
+						comptes = cpteDao.loadCompteByClientId(client);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					request.setAttribute("comptes", comptes);
 					session.setAttribute("typeUtilisateur", "client");
 					session.setAttribute("utilisateur", client);
 					System.out.println("Connexion de l'utilisateur réussie. Bienvenue " + identifiant);

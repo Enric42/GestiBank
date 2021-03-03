@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.com">
 
 <html>
@@ -18,11 +19,10 @@ pageEncoding="ISO-8859-1"%>
 
 	<h2>Bonjour, ${ utilisateur.getPrenom() }</h2>
 
-
 	<ul>
-	<li><a href = "/GestiBank/client/pageClient.jsp">Mon espace client</a></li>
-	<li><a href = "">Contacter mon conseiller</a></li>
-	<li><a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a></li>
+		<li><a href = "/GestiBank/client/pageClient.jsp">Mon espace client</a></li>
+		<li><a href = "">Contacter mon conseiller</a></li>
+		<li><a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a></li>
 	</ul>
 	
 

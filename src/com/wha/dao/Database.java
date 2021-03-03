@@ -9,7 +9,7 @@ public class Database {
 	private static final String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private static final String url = "jdbc:sqlserver://localhost:1433;database=gestibank;";
     private static final String user = "anyblood";
-    private static final String password = "Lepiaf34170-";
+    private static final String password = "lepiaf34170-";
 
     private static Connection connexion;
 
