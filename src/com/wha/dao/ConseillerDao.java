@@ -42,7 +42,7 @@ public class ConseillerDao implements IDao<Conseiller> {
 	
 	public Conseiller getConseillerByLogin(String login, String password) throws SQLException {
 		Conseiller conseiller = null;
-		PreparedStatement prepareRequete = IDao.connect.prepareStatement("select c.*, u.* from utilisateurs u inner join conseiller on u.id = c.id_utilisateur where u.login = ? and u.password = ?");
+		PreparedStatement prepareRequete = IDao.connect.prepareStatement("select a.*, u.* from utilisateurs u inner join agent a on u.id = a.id_utilisateur where u.login = ? and u.password = ?");
 		prepareRequete.setString(1,login);
 		prepareRequete.setString(2,password);
 		ResultSet result = prepareRequete.executeQuery();
@@ -57,6 +57,7 @@ public class ConseillerDao implements IDao<Conseiller> {
 			conseiller.setMail(result.getString("mail"));
 			conseiller.setDebutContrat(result.getDate("dateDebutContrat"));
 		}
+		System.out.println("conseiller");
 		return conseiller;
 	}
 

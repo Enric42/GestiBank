@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.wha.dao.ClientDao;
+import com.wha.dao.CompteDao;
 import com.wha.dao.ConseillerDao;
 
 import jakarta.servlet.RequestDispatcher;
@@ -16,7 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = {"/administrateur/*"})
+@WebServlet(urlPatterns = {"/conseiller/*"})
 public class ConseillerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,7 +43,8 @@ public class ConseillerServlet extends HttpServlet {
 		// TODO switch
 		/**/
 		if (path == "/administrateur/creerConseiller") {
-			creerConseiller(request, response);
+			//creerConseiller(request, response);
+			System.out.println("Creer client affiche");
 		}
 		/**/
 	}
@@ -55,7 +57,8 @@ public class ConseillerServlet extends HttpServlet {
 		// TODO switch
 		/**/
 		if (path == "/administrateur/creerConseiller") {
-			creerConseiller(request, response);
+			//creerConseiller(request, response);
+			System.out.println("Creer client affiche");
 		}
 		/**/
 	}

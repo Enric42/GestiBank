@@ -1,11 +1,13 @@
 package com.wha.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.wha.dao.ClientDao;
 import com.wha.dao.ConseillerDao;
+import com.wha.entities.Client;
 
 import jakarta.servlet.RequestDispatcher;
 
@@ -91,9 +93,12 @@ public class GuestServlet extends HttpServlet {
 		}
 		else {
 			String nouvelleAdresse = adresse + "-" + codePostal + "-" + ville;
-			Client client = new Client (nom, prenom, tel, mail, nouvelleAdresse);
 			ClientDao clientDao = new ClientDao();
-			clientDao.createNewClient(client);
+			try {
+				clientDao.createNewClient(nom, prenom, tel, mail, nouvelleAdresse);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			response.sendRedirect(request.getContextPath() + "/validationInscription.jsp");
 		}
 	}

@@ -22,6 +22,10 @@ public abstract class AUtilisateur {
 		return login;
 	}
 
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	
 	public void setLogin(String part1, String part2) {
 		String cap1 = part1.substring(0, 1).toUpperCase() + part1.substring(1);
 		String cap2 = part2.substring(0, 1).toUpperCase() + part2.substring(1);

@@ -42,7 +42,11 @@ public class traiterLoginServlet extends HttpServlet {
 			case "administrateur":
 				AdministrateurDao administrateurDao = new AdministrateurDao();
 				Administrateur administrateur = null;
-				// Administrateur administrateur = AdministrateurDao.getAdministrateurByLogin(identifiant, motDePasse);
+				try {
+					administrateur = administrateurDao.getAdministrateurByLogin(identifiant, motDePasse);
+				} catch (SQLException e2) {
+					e2.printStackTrace();
+				}
 				if (administrateur == null) {
 					redirigerPageErreurConnexion(request, response);
 				}
@@ -57,7 +61,11 @@ public class traiterLoginServlet extends HttpServlet {
 			case "conseiller":
 				ConseillerDao conseillerDao = new ConseillerDao();
 				Conseiller conseiller = null;
-				// Conseiller conseiller = conseillerDao.getConseillerByLogin(identifiant, motDePasse);
+				try {
+					conseiller = conseillerDao.getConseillerByLogin(identifiant, motDePasse);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				if (conseiller == null) {
 					redirigerPageErreurConnexion(request, response);
 				}

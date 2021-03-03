@@ -15,9 +15,6 @@ pageEncoding="ISO-8859-1"%>
 
 <a href="<%=request.getContextPath()+ "/accueilConseiller.jsp" %>"p">Accueil</a>
 <a href="<%=request.getContextPath()+ "/fin.jsp"%>">Se déconnecter</a>
-
-	<% String pseudo = (String) session.getAttribute("utilisateur");%>
-	<h2>Bonjour, <%= pseudo %></h2>
 	
 	<h1>Gestion des clients</h1>
 	<ul>
