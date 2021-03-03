@@ -34,29 +34,29 @@ pageEncoding="ISO-8859-1"%>
 
 
 
-<form action = "traiterlogin" method = "POST">
+<form action = "" method = "POST">
 <table border = "0">
 <tr>
 <td align = "center" width = "200" > Compte Emetteur: </td>
-<td><input type = "text" name = "login" maxLength = "20" size = "20" value = ""></td>
+<td><input type = "text" name = "CmptEmetteur" maxLength = "20" size = "20" value = ""></td>
 </tr>
 <tr>
 <td align = "center" width = "200" > Compte Recepteur : </td>
-<td><input type = "text" name = "login" maxLength = "20" size = "20" value = ""></td>
+<td><input type = "text" name = "CmptRecepteur" maxLength = "20" size = "20" value = ""></td>
 </tr>
 
 
 <tr>
 <td align = "center" width = "200" > Libellé du virement : </td>
-<td><input type = "text" name = "login" maxLength = "20" size = "20" value = ""></td>
+<td><input type = "text" name = "LiblVirement" maxLength = "20" size = "20" value = ""></td>
 </tr>
 <tr>
 <td align = "center" width = "200" > Montant du virement : </td>
-<td><input type = "text" name = "login" maxLength = "20" size = "20" value = ""></td>
+<td><input type = "number" name = "MontVirement" maxLength = "20" size = "20" value = ""></td>
 </tr>
 
 <tr>
-<td align = "center"><input type = "reset" value = "Valider"></td>
+<td align = "center"><input type = "submit" value = "Valider"></td>
 </tr>
 
 
