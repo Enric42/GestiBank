@@ -1,10 +1,10 @@
 package com.wha.entities;
 
 enum ESituationMatrimuniale {
-	célibataire,
-	marié,
+	cÃ©libataire,
+	mariÃ©,
 	veuf,
-	divorcé,
+	divorcÃ©,
 	pacs,
 	concubinage,
 	unionLibre
