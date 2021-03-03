@@ -24,12 +24,12 @@ pageEncoding="UTF-8"%>
  			<a class="navbar-brand" href="/GestiBank/accueil.jsp"><img class="spring" src="css/img/bank.svg" alt="" width="100" height="100"></a>
    				<ul class="nav nav-pills">
   					<li class="nav-item">
-    					<a class="btn btn-success" id="btn-g" type="button" href="<%=request.getContextPath() + "/connexion.jsp"%>">Connexion</a>
+    					<a class="btn btn-success" type="button" href="<%=request.getContextPath() + "/connexion.jsp"%>">Connexion</a>
   					</li>
   					<li class="nav-item">  
   					</li>
   					<li class="nav-item">
-    					<a class="btn btn-success" type="button" id="btn-g" href="<%=request.getContextPath() + "/inscription.jsp"%>">Inscription</a>
+    					<a class="btn btn-success" type="button" href="<%=request.getContextPath() + "/inscription.jsp"%>">Inscription</a>
   					</li>
   					</ul>
    	</nav>

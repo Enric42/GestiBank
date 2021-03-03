@@ -15,9 +15,7 @@ pageEncoding="ISO-8859-1"%>
 
 <a href = "<%= request.getContextPath()+ "/accueilClient.jsp" %>">Accueil</a>
 
-
 	<h2>Bonjour, ${ utilisateur.getPrenom() }</h2>
-
 
 	<ul>
 	<li><a href = "/GestiBank/client/pageClient.jsp">Mon espace client</a></li>
@@ -25,8 +23,6 @@ pageEncoding="ISO-8859-1"%>
 	<li><a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a></li>
 	</ul>
 	
-
-
 
 </body>
 </html>

@@ -29,14 +29,14 @@ pageEncoding="UTF-8"%>
                         <img src="<%=request.getContextPath()%>/css/img/cash.svg" alt=""/>
                         <h3>GestiBank</h3>
                         <p>une inscription rapide en 30 secondes pour gagner de l'argent !</p>
-                        <a class="btn btn-success" href="<%=request.getContextPath()%>">Retour à l'accueil</a><br/>
+                        <a class="btn btn-form btn-form-success" href="<%=request.getContextPath()%>">Retour à l'accueil</a><br/>
                     </div>
-                    <div class="col-md-9 register-right">
+                    <div class="col-md-7 register-right">
 							<h3 class="register-heading">Formulaire d'inscription</h3>
                                 <form class="needs-validation" novalidate>
                                 
                                 <div class="row register-form">
-                                    <div class="col-md-6">
+                                    <div class="col-md-5">
                                     	<div class="form-group position-relative">
                                         	<label for="validationTooltip01" class="form-label">Nom</label>
                                             <input type="text" class="form-control" id="validationTooltip01" name="nom" placeholder="Votre Nom" value="" required>
@@ -129,8 +129,8 @@ pageEncoding="UTF-8"%>
 	      										"Code postal" manquant.
 											</div>
 										</div>
-											<input type= "reset" class="btn btn-reset f-left" value = "Remettre à zéro"/>
-											<input type="submit" class="btn btn-success f-left"  value="Inscription"/>
+											<input type= "reset" class="btn-form btn-form-reset f-left" value = "Remettre à zéro"/>
+											<input type="submit" class="btn-form btn-form-success f-left"  value="Inscription"/>
                                     </div>
                                 </div>
                                 </form>
