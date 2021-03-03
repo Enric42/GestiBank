@@ -31,6 +31,19 @@ public class Client extends AUtilisateur implements IEntitePhysique {
 		this.setSituationMatrimoniale(situation);
 	}
 	
+	public Client (int id, String nom, String prenom, String telephone, String mail, String adresse) {
+		this.setId(id);
+		this.setLogin(nom, prenom);
+		this.setPassword(nom);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setTelephone(telephone);
+		this.setMail(mail);
+		this.setAdresse(adresse);
+		this.setIsValid(false);
+		this.setSituationMatrimoniale(1);
+	}
+	
 	public void effectuerVirement() {
 		
 	}

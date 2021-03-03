@@ -1,8 +1,12 @@
 package com.wha.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.wha.entities.Client;
 import com.wha.entities.Conseiller;
 
 public class ConseillerDao implements IDao<Conseiller> {
@@ -34,6 +38,26 @@ public class ConseillerDao implements IDao<Conseiller> {
 	public List<Conseiller> loadConseillers() {
 		List<Conseiller> conseillers = new ArrayList<Conseiller>();
 		return conseillers;
+	}
+	
+	public Conseiller getConseillerByLogin(String login, String password) throws SQLException {
+		Conseiller conseiller = null;
+		PreparedStatement prepareRequete = IDao.connect.prepareStatement("select c.*, u.* from utilisateurs u inner join conseiller on u.id = c.id_utilisateur where u.login = ? and u.password = ?");
+		prepareRequete.setString(1,login);
+		prepareRequete.setString(2,password);
+		ResultSet result = prepareRequete.executeQuery();
+		if(result.next()) {
+			conseiller = new Conseiller();
+			conseiller.setLogin(result.getString("login"));
+			conseiller.setPassword(result.getString("password"));
+			conseiller.setMatricule(result.getString("matricule"));
+			conseiller.setNom(result.getString("nom"));
+			conseiller.setPrenom(result.getString("prenom"));
+			conseiller.setTelephone(result.getString("telephone"));
+			conseiller.setMail(result.getString("mail"));
+			conseiller.setDebutContrat(result.getDate("dateDebutContrat"));
+		}
+		return conseiller;
 	}
 
 	@Override
