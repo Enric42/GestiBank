@@ -10,7 +10,10 @@ pageEncoding="UTF-8"%>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Courgette&display=swap" rel="stylesheet">
+
+<!-- Import des feuilles de styles -->
 <link href="css/animation.css" rel="stylesheet">
+<link href="css/common.css" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <script defer type="text/javascript" src="js/annotation.js"></script>
@@ -31,12 +34,12 @@ pageEncoding="UTF-8"%>
                         <p>une inscription rapide en 30 secondes pour gagner de l'argent !</p>
                         <a class="btn btn-form btn-form-success" href="<%=request.getContextPath()%>">Retour à l'accueil</a><br/>
                     </div>
-                    <div class="col-md-7 register-right">
+                    <div class="col-md-8 register-right">
 							<h3 class="register-heading">Formulaire d'inscription</h3>
                                 <form class="needs-validation" novalidate>
                                 
                                 <div class="row register-form">
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                     	<div class="form-group position-relative">
                                         	<label for="validationTooltip01" class="form-label">Nom</label>
                                             <input type="text" class="form-control" id="validationTooltip01" name="nom" placeholder="Votre Nom" value="" required>
@@ -128,9 +131,9 @@ pageEncoding="UTF-8"%>
 	      									<div class="invalid-tooltip">
 	      										"Code postal" manquant.
 											</div>
-										</div>
-											<input type= "reset" class="btn-form btn-form-reset f-left" value = "Remettre à zéro"/>
-											<input type="submit" class="btn-form btn-form-success f-left"  value="Inscription"/>
+										</div></br>
+											<input type="submit" class="btn-form btn-form-success f-right m-2p"  value="Inscription"/>
+											<input type= "reset" class="btn-form btn-form-reset f-right m-2p" value = "Remettre à zéro"/>
                                     </div>
                                 </div>
                                 </form>
