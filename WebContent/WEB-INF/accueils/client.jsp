@@ -23,7 +23,7 @@ pageEncoding="UTF-8"%>
 <body>
 <div class="container-fluid" style="background: linear-gradient(90deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
   <nav class="navbar navbar-light" style="background: linear-gradient(90deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
-    <a class="navbar-brand" href="/GestiBank/accueil.jsp"><img class="spring" src="css/img/bank.svg" alt="" width="100" height="100"></a>
+    <a class="navbar-brand" href="/GestiBank/accueil.jsp"><img class="spring" src="<%= request.getContextPath()+ "/css/img/bank.svg"%>" alt="" width="100" height="100"></a>
   </nav>
 </div>
 

@@ -39,6 +39,7 @@ public class ClientServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    	verifierTypeUtilisateur(request, response);
     	if(request.getSession(false) != null) {
 			HttpSession tmpSession = request.getSession(false);
 			if(getPath(request) != null) {
@@ -69,12 +70,19 @@ public class ClientServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		verifierTypeUtilisateur(request, response);
 		if(request.getSession(false) != null) {
 			HttpSession tmpSession = request.getSession(false);
+			Client client = null;
 			if(getPath(request) != null) {
 				switch (getPath(request)) {
+					case "accueil":
+						client = (Client) tmpSession.getAttribute("utilisateur");
+						tmpSession.setAttribute("comptes", client.getComptes());
+						redirect(request, response, "/WEB-INF/accueils/client.jsp");
+						break;
 					case "comptes":
-						Client client = (Client) tmpSession.getAttribute("utilisateur");
+						client = (Client) tmpSession.getAttribute("utilisateur");
 						tmpSession.setAttribute("comptes", client.getComptes());
 						redirect(request, response, "/accueilClient.jsp");
 						break;
@@ -88,8 +96,19 @@ public class ClientServlet extends HttpServlet {
 		}
     }
 	
-	private void redirect(HttpServletRequest request, HttpServletResponse response, String redir) throws IOException {
-		response.sendRedirect(request.getContextPath() + redir);
+	private void verifierTypeUtilisateur(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session == null) {
+			response.sendRedirect(request.getContextPath() + "/404.jsp");
+		}
+		String typeUtilisateur = (String) session.getAttribute("typeUtilisateur"); 
+		if (typeUtilisateur.equals("client")) {
+			response.sendRedirect(request.getContextPath() + "/404.jsp");
+		}
+	}
+	
+	private void redirect(HttpServletRequest request, HttpServletResponse response, String redir) throws IOException, ServletException {
+		this.getServletContext().getRequestDispatcher(redir).forward(request, response);
 	}
     
 

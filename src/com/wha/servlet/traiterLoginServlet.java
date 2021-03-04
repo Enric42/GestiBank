@@ -60,7 +60,7 @@ public class traiterLoginServlet extends HttpServlet {
 					session.setAttribute("typeUtilisateur", "administrateur");
 					session.setAttribute("utilisateur", administrateur);
 					System.out.println("Connexion de l'administrateur réussie. Bienvenue " + identifiant);
-					response.sendRedirect(request.getContextPath() + "/accueils/administrateur.jsp");
+					response.sendRedirect(request.getContextPath() + "/administrateur/accueil");
 				}
 				break;
 			case "conseiller":
@@ -79,7 +79,7 @@ public class traiterLoginServlet extends HttpServlet {
 					session.setAttribute("typeUtilisateur", "conseiller");
 					session.setAttribute("utilisateur", conseiller);
 					System.out.println("Connexion du conseiller réussie. Bienvenue " + identifiant);
-					response.sendRedirect(request.getContextPath() + "/accueils/conseiller.jsp");
+					response.sendRedirect(request.getContextPath() + "/conseiller/accueil");
 				}
 				break;
 			default:
@@ -106,13 +106,13 @@ public class traiterLoginServlet extends HttpServlet {
 					session.setAttribute("typeUtilisateur", "client");
 					session.setAttribute("utilisateur", client);
 					System.out.println("Connexion de l'utilisateur réussie. Bienvenue " + identifiant);
-					response.sendRedirect(request.getContextPath() + "/accueils/client.jsp");
+					response.sendRedirect(request.getContextPath() + "/client/accueil");
 				}
 		}
 	}
     
     private void redirigerPageErreurConnexion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	System.out.println("Connexion impossible : identifiant ou mot de passe incorrect");
-		response.sendRedirect(request.getContextPath() + "/erreur.html");
+		response.sendRedirect(request.getContextPath() + "/erreur.jsp");
     }
 }
