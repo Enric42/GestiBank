@@ -2,6 +2,7 @@ package com.wha.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import jakarta.servlet.ServletException;
@@ -15,6 +16,7 @@ import com.wha.dao.client.OperationDao;
 import com.wha.entities.Client;
 import com.wha.entities.Compte;
 import com.wha.entities.CompteBeneficiaire;
+import com.wha.entities.Operation;
 import com.wha.entities.Virement;
 
 @WebServlet(urlPatterns = {"/client/*"})
