@@ -7,7 +7,7 @@ public class CompteBeneficiaire implements ICompte {
 	private Boolean proprietaire;
 	
 	
-	public CompteBeneficiaire (String libelle, String rib) {
+	public CompteBeneficiaire (String libelle, String rib, Boolean proprietaire) {
 		this.setLibelle(libelle);
 		this.setRib(rib);
 		this.setProprietaire(proprietaire);
