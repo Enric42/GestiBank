@@ -20,7 +20,7 @@
     <servlet-name>traiterLoginServlet</servlet-name>
     <url-pattern>/traiterlogin</url-pattern>
   </servlet-mapping>
-
+  
   <servlet>
     <description></description>
     <display-name>HttpSessionServlet</display-name>

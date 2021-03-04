@@ -3,47 +3,94 @@ package com.wha.servlet;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import com.wha.entities.Client;
 import com.wha.entities.Compte;
 import com.wha.entities.CompteBeneficiaire;
 import com.wha.entities.Virement;
 
-@WebServlet("/client/*")
+@WebServlet(urlPatterns = {"/client/*"})
 public class ClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
+	/**
+     * @see HttpServlet#HttpServlet()
+     */
     public ClientServlet() {
-        
+        super();
     }
     
+    private String getPath(HttpServletRequest request) {
+    	String tmp = null;
+    	String[] paths = request.getRequestURI().split("/");
+    	if(paths.length > 3) {
+    		tmp = paths[3];
+    	}
+    	return tmp;
+    }
+    
+    /**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	String path = request.getRequestURI();
-    	if(path.equals("/client/nouveauVirement") ){
-    		effectuerVirement(request, response);
-    	}else if (path.equals("/client/supprimerConseiller")) {
-    		supprimerCompteBeneficiaire(request, response);
-    	}else if (path.equals("/client/ajouterCompteBeneficiaire") ){
-    		ajouterCompteBeneficiaire(request, response);
-    	}else {response.sendRedirect(request.getContextPath() + "/404.jsp");}
+    	if(request.getSession(false) != null) {
+			HttpSession tmpSession = request.getSession(false);
+			if(getPath(request) != null) {
+				switch (getPath(request)) {
+				case "nouveauVirement": {
+					//effectuerVirement(request, response);
+					redirect(request, response, "/accueilClient.jsp");
+					break;
+				}
+				case "supprimerConseiller":
+					redirect(request, response, "/accueilClient.jsp");
+					break;
+				case "ajouterCompteBeneficiaire":
+					redirect(request, response, "/accueilClient.jsp");
+					break;
+				default:
+					redirect(request, response, "/accueilClient.jsp");
+					break;
+			}
+			}else
+				redirect(request, response, "/accueilClient.jsp");
+		}else {
+			redirect(request, response, "/accueil.jsp");
+		}
     };
     
-    
+    /**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	String path = request.getRequestURI();
-    	 if (path.equals("/client/consulterComptes")) {
-    		getComptes(request, response);
-    	}else if(path.equals("/client/")){
-    		getcompte(request, response);
-    	}else {response.sendRedirect(request.getContextPath() + "/404.jsp");}
+		if(request.getSession(false) != null) {
+			HttpSession tmpSession = request.getSession(false);
+			if(getPath(request) != null) {
+				switch (getPath(request)) {
+					case "comptes":
+						Client client = (Client) tmpSession.getAttribute("utilisateur");
+						tmpSession.setAttribute("comptes", client.getComptes());
+						redirect(request, response, "/accueilClient.jsp");
+						break;
+					case "compte":
+						break;
+				}
+			}else
+				redirect(request, response, "/accueilClient.jsp");
+		}else {
+			redirect(request, response, "/accueil.jsp");
+		}
     }
+	
+	private void redirect(HttpServletRequest request, HttpServletResponse response, String redir) throws IOException {
+		response.sendRedirect(request.getContextPath() + redir);
+	}
     
 
 

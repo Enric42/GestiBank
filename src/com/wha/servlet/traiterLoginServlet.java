@@ -2,7 +2,6 @@ package com.wha.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.wha.dao.ClientDao;
@@ -30,8 +29,14 @@ public class traiterLoginServlet extends HttpServlet {
      */
     public traiterLoginServlet() {
         super();
+        System.out.println("testé");
     }
 
+      //binder accueilconseiller.jsp to /WEB-INF/accueils/conseiller.jsp
+	  //binder accueilconseiller.jsp to /WEB-INF/accueils/administrateur.jsp
+	  //binder accueilconseiller.jsp to /WEB-INF/accueils/client.jsp
+    
+    
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String identifiant = (String) request.getParameter("login");
@@ -55,7 +60,7 @@ public class traiterLoginServlet extends HttpServlet {
 					session.setAttribute("typeUtilisateur", "administrateur");
 					session.setAttribute("utilisateur", administrateur);
 					System.out.println("Connexion de l'administrateur réussie. Bienvenue " + identifiant);
-					response.sendRedirect(request.getContextPath() + "/accueilAdmin.jsp");
+					response.sendRedirect(request.getContextPath() + "/accueils/administrateur.jsp");
 				}
 				break;
 			case "conseiller":
@@ -74,7 +79,7 @@ public class traiterLoginServlet extends HttpServlet {
 					session.setAttribute("typeUtilisateur", "conseiller");
 					session.setAttribute("utilisateur", conseiller);
 					System.out.println("Connexion du conseiller réussie. Bienvenue " + identifiant);
-					response.sendRedirect(request.getContextPath() + "/accueilConseiller.jsp");
+					response.sendRedirect(request.getContextPath() + "/accueils/conseiller.jsp");
 				}
 				break;
 			default:
@@ -97,11 +102,11 @@ public class traiterLoginServlet extends HttpServlet {
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
-					request.setAttribute("comptes", comptes);
+					client.setComptes(comptes);
 					session.setAttribute("typeUtilisateur", "client");
 					session.setAttribute("utilisateur", client);
 					System.out.println("Connexion de l'utilisateur réussie. Bienvenue " + identifiant);
-					response.sendRedirect(request.getContextPath() + "/accueilClient.jsp");
+					response.sendRedirect(request.getContextPath() + "/accueils/client.jsp");
 				}
 		}
 	}

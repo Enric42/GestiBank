@@ -30,8 +30,7 @@ pageEncoding="UTF-8"%>
 <a href="<%=request.getContextPath()+ "/conseiller.jsp"%>">Accueil</a>
 <a href="<%=request.getContextPath()+ "/fin.jsp"%>">Se déconnecter</a>
 
-	<% String pseudo = (String) session.getAttribute("utilisateur");%>
-	<h2>Bonjour, <%= pseudo %></h2>
+	<h2>Bonjour, ${ utilisateur.getPrenom() }</h2>
 	
 	<h1>Gestion des clients</h1>
 	<ul>

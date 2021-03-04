@@ -13,7 +13,7 @@ public class Main {
 		CompteDao dao = new CompteDao();
 		Client tmp = null;
 		
-		clientDao.createNewClient("tamere", "laltere", "0303030303", "a@b.fr", "allee du cul");
+		//clientDao.createNewClient("tamere", "laltere", "0303030303", "a@b.fr", "allee du cul");
 		List<Compte> listeComptes = null;
 		try {
 			tmp = clientDao.getClientByLogin("maxime", "bras");
