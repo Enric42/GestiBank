@@ -22,13 +22,6 @@ import com.wha.entities.Virement;
 @WebServlet(urlPatterns = {"/client/*"})
 public class ClientServlet extends AServlet {
 	private static final long serialVersionUID = 1L;
-       
-	/**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ClientServlet() {
-        super();
-    }
     
     /**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -38,24 +31,27 @@ public class ClientServlet extends AServlet {
 			HttpSession tmpSession = request.getSession(false);
 			if(getPath(request) != null) {
 				switch (getPath(request)[3]) {
-				case "nouveauVirement": {
-					//effectuerVirement(request, response);
-					redirect(request, response, "/WEB-INF/accueils/client.jsp");
-					break;
+					case "nouveauVirement": {
+						//effectuerVirement(request, response);
+						redirect(request, response, "/WEB-INF/accueils/client.jsp");
+						break;
+					}
+					case "supprimerConseiller":
+						redirect(request, response, "/WEB-INF/accueils/client.jsp");
+						break;
+					case "ajouterCompteBeneficiaire":
+						redirect(request, response, "/WEB-INF/accueils/client.jsp");
+						break;
+					default:
+						redirect(request, response, "/WEB-INF/accueils/client.jsp");
+						break;
 				}
-				case "supprimerConseiller":
-					redirect(request, response, "/WEB-INF/accueils/client.jsp");
-					break;
-				case "ajouterCompteBeneficiaire":
-					redirect(request, response, "/WEB-INF/accueils/client.jsp");
-					break;
-				default:
-					redirect(request, response, "/WEB-INF/accueils/client.jsp");
-					break;
 			}
-			}else
+			else {
 				redirect(request, response, "/WEB-INF/accueils/client.jsp");
-		}else {
+			}
+		}
+    	else {
 			redirect(request, response, "/accueil.jsp");
 		}
     };
@@ -89,6 +85,8 @@ public class ClientServlet extends AServlet {
 							}
 							redirect(request, response, "/WEB-INF/client/compte.jsp");
 							break;
+						default:
+							redirect(request, response, "/404.jsp");
 					}
 				}else
 				redirect(request, response, "/WEB-INF/accueils/client.jsp");
@@ -97,10 +95,6 @@ public class ClientServlet extends AServlet {
 		}else
 			redirect(request, response, "/accueil.jsp");
     }
-	
-	private void redirect(HttpServletRequest request, HttpServletResponse response, String redir) throws IOException, ServletException {
-		this.getServletContext().getRequestDispatcher(redir).forward(request, response);
-	}
     
 
 

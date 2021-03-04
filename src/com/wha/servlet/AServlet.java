@@ -1,7 +1,11 @@
 package com.wha.servlet;
 
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 public abstract class AServlet extends HttpServlet {
@@ -19,4 +23,8 @@ public abstract class AServlet extends HttpServlet {
     	}
     	return null;
     }
+
+    protected void redirect(HttpServletRequest request, HttpServletResponse response, String redir) throws IOException, ServletException {
+		this.getServletContext().getRequestDispatcher(redir).forward(request, response);
+	}
 }

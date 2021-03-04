@@ -6,6 +6,8 @@ import java.util.List;
 
 import com.wha.dao.ClientDao;
 import com.wha.dao.ConseillerDao;
+import com.wha.entities.Administrateur;
+import com.wha.entities.Conseiller;
 
 import jakarta.servlet.RequestDispatcher;
 
@@ -17,57 +19,61 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = {"/administrateur/*"})
-public class AdministrateurServlet extends HttpServlet {
+public class AdministrateurServlet extends AServlet {
 	private static final long serialVersionUID = 1L;
+	
 
-	public AdministrateurServlet() {
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
+    /**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		verifierTypeUtilisateur(request, response);
-		
-		String path = request.getRequestURI();
-
 		HttpSession session = request.getSession(false);
-		if (session == null) {
-			response.sendRedirect(request.getContextPath() + "/404.jsp");
+		if (session != null) {
+			if(verifierTypeUtilisateur(session, "administrateur")) {
+				Administrateur administrateur = (Administrateur) session.getAttribute("utilisateur");
+				if(getPath(request) != null) {
+					switch (getPath(request)[3]) {
+						case "creerConseiller":
+							creerConseiller(request, response);
+							break;
+						default:
+							redirect(request, response, "/404.jsp");
+					}
+				}
+			}
+			else {
+				redirect(request, response, "/404.jsp");
+			}
 		}
-		String typeUtilisateur = (String) session.getAttribute("typeUtilisateur"); 
-		if (typeUtilisateur.equals("administrateur")) {
-			response.sendRedirect(request.getContextPath() + "/404.jsp");
+		else {
+			redirect(request, response, "/accueil.jsp");
 		}
-
-		// TODO switch
-		/**/
-		if (path == "/administrateur/creerConseiller") {
-			creerConseiller(request, response);
-		}
-		/**/
 	}
-	
+
+    /**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		verifierTypeUtilisateur(request, response);
-		
-		String path = request.getRequestURI();
-
-		// TODO switch
-		/**/
-		if (path == "/administrateur/creerConseiller") {
-			creerConseiller(request, response);
-		}
-		/**/
-	}
-	
-	private void verifierTypeUtilisateur(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		if (session == null) {
-			response.sendRedirect(request.getContextPath() + "/404.jsp");
+		if (session != null) {
+			if(verifierTypeUtilisateur(session, "administrateur")) {
+				Administrateur administrateur = (Administrateur) session.getAttribute("utilisateur");
+				if(getPath(request) != null) {
+					switch (getPath(request)[3]) {
+						case "accueil":
+							redirect(request, response, "/WEB-INF/accueils/administrateur.jsp");
+							break;
+						default:
+							redirect(request, response, "/404.jsp");
+					}
+				}
+			}
+			else {
+				redirect(request, response, "/404.jsp");
+			}
 		}
-		String typeUtilisateur = (String) session.getAttribute("typeUtilisateur"); 
-		if (typeUtilisateur.equals("administrateur")) {
-			response.sendRedirect(request.getContextPath() + "/404.jsp");
+		else {
+			redirect(request, response, "/accueil.jsp");
 		}
 	}
 	
@@ -113,6 +119,17 @@ public class AdministrateurServlet extends HttpServlet {
 		}
 		else {
 			ConseillerDao conseillerDao = new ConseillerDao();
+			Conseiller conseiller = new Conseiller();
+			conseiller.setLogin(login);
+			conseiller.setPassword(password);
+			conseiller.setMatricule(matricule);
+			conseiller.setNom(nom);
+			conseiller.setPrenom(prenom);
+			// conseiller.setGenre();
+			conseiller.setMail(mail);
+			conseiller.setTelephone(tel);
+			conseiller.setAdresse(adresse + " " + codePostal + " " + ville);
+			conseillerDao.create(conseiller);
 			response.sendRedirect(request.getContextPath() + "/administrateur/creerConseillerValidation.jsp");
 		}
 	}
