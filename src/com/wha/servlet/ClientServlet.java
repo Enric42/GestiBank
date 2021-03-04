@@ -20,7 +20,7 @@ import com.wha.entities.Operation;
 import com.wha.entities.Virement;
 
 @WebServlet(urlPatterns = {"/client/*"})
-public class ClientServlet extends HttpServlet {
+public class ClientServlet extends AServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -28,15 +28,6 @@ public class ClientServlet extends HttpServlet {
      */
     public ClientServlet() {
         super();
-    }
-    
-    private String[] getPath(HttpServletRequest request) {
-    	String[] tmp = null;
-    	String[] paths = request.getRequestURI().split("/");
-    	if(paths.length > 3) {
-    		tmp = paths;
-    	}
-    	return tmp;
     }
     
     /**
@@ -69,20 +60,13 @@ public class ClientServlet extends HttpServlet {
 		}
     };
     
-    private Boolean verifierTypeUtilisateur(HttpSession session) throws ServletException, IOException {
-		Boolean tmp = false;
-		if(session.getAttribute("typeUtilisateur").equals("client"))
-			tmp = true;
-		return tmp;
-	}
-    
     /**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession tmpSession = request.getSession(false);
 		if(tmpSession != null) {
-			if(verifierTypeUtilisateur(tmpSession)) {
+			if(verifierTypeUtilisateur(tmpSession, "client")) {
 				Client client = (Client) tmpSession.getAttribute("utilisateur");
 				if(getPath(request) != null) {
 					switch (getPath(request)[3]) {
