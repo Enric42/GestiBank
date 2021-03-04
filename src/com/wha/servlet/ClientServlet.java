@@ -101,8 +101,7 @@ public class ClientServlet extends HttpServlet {
 							} catch (SQLException e) {
 								e.printStackTrace();
 							}
-							//redirect(request, response, "/WEB-INF/");
-							System.out.println(cpte);
+							redirect(request, response, "/WEB-INF/client/compte.jsp");
 							break;
 					}
 				}else
