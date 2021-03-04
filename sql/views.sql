@@ -23,5 +23,3 @@ CREATE VIEW V_compte_beneficiaire AS
   SELECT compte.rib as rib, CONCAT(client.nom, ' ', client.prenom) as libelle, compte.id_client as id_client, true as proprietaire 
     FROM compte compte
     INNER JOIN client client ON client.id_utilisateur = compte.id_client
-    
-    V_OPERATIONS (montant, idCompte, libelle, typeOperation)
