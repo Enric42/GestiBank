@@ -1,7 +1,7 @@
 package com.wha.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import jakarta.servlet.ServletException;
@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import com.wha.dao.CompteDao;
+import com.wha.dao.client.OperationDao;
 import com.wha.entities.Client;
 import com.wha.entities.Compte;
 import com.wha.entities.CompteBeneficiaire;
@@ -77,7 +77,7 @@ public class ClientServlet extends HttpServlet {
     /**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession tmpSession = request.getSession(false);
 		if(tmpSession != null) {
 			if(verifierTypeUtilisateur(tmpSession)) {
@@ -94,7 +94,13 @@ public class ClientServlet extends HttpServlet {
 						case "compte":
 							String rib = getPath(request)[4];
 							Compte cpte = client.getCompte(rib);
-							tmpSession.setAttribute("compte", client.getCompte(rib));
+							request.setAttribute("compte", client.getCompte(rib));
+							OperationDao operationDao = new OperationDao();
+							try {
+								request.setAttribute("operations", operationDao.loadOperationsByCompteRib(rib));
+							} catch (SQLException e) {
+								e.printStackTrace();
+							}
 							//redirect(request, response, "/WEB-INF/");
 							System.out.println(cpte);
 							break;

@@ -21,9 +21,9 @@ public class OperationDao {
 	}
 	
 	
-	public List<Operation> loadOperationByCompteId(int compteId) throws SQLException {
+	public List<Operation> loadOperationsByCompteRib(String rib) throws SQLException {
 		List<Operation> listeOperations = new ArrayList<Operation>();
-		String request = "SELECT montant, date, idCompte, libelle, typeOperation FROM V_Operations WHERE idCompte = " + compteId;
+		String request = "SELECT montant, date, idCompte, libelle, typeOperation FROM V_Operations WHERE idCompte = " + rib;
 		ResultSet result = IDao.connect.createStatement().executeQuery(request);
 		while(result.next()) {
 			Operation operation = new Operation();

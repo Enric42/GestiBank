@@ -1,5 +1,8 @@
 package com.wha.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Compte implements ICompte {
 
 	private Client client;
@@ -8,6 +11,8 @@ public class Compte implements ICompte {
 	private Float seuil;
 	private Float faciliteCaisse;
 	private Boolean isValid;
+	
+	private List<Operation> operations = null;
 	
 	/**
 	 * Création d'un compte possédant un seuil négatif
@@ -92,5 +97,16 @@ public class Compte implements ICompte {
 
 	public void setRib(String rib) {
 		this.rib = rib;
+	}
+	
+	public List<Operation> getOperations() {
+		if (operations == null) {
+			operations = new ArrayList<Operation>();
+		}
+		return operations;
+	}
+	
+	public void setOperations(List<Operation> operations) {
+		this.operations = operations;
 	}
 }
