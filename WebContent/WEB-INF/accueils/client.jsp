@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@page import="com.wha.entities.*" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 
@@ -27,12 +29,19 @@ pageEncoding="UTF-8"%>
   </nav>
 </div>
 
-<a href = "<%= request.getContextPath()+ "/client.jsp" %>">Accueil</a>
-
 	<h2>Bonjour, ${ utilisateur.getPrenom() }</h2>
 
+	<% ArrayList<Compte> comptes = (ArrayList<Compte>) session.getAttribute("comptes");
+		for (Compte compte : comptes) {
+        %>
+          <a href="<%=request.getContextPath() %>/client/compte/<%= compte.getRib() %>">
+          	Compte numéro <%= compte.getRib() %>
+          </a>
+          <br/><br/>
+        <%}%>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
 	<ul>
-	<li><a href = "/GestiBank/client/pageClient.jsp">Mon espace client</a></li>
 	<li><a href = "">Contacter mon conseiller</a></li>
 	<li><a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a></li>
 	</ul>

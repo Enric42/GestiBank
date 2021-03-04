@@ -47,6 +47,14 @@ public class Client extends AUtilisateur implements IEntitePhysique {
 	public void effectuerVirement() {
 		
 	}
+	
+	public Compte getCompte(String rib) {
+		for (Compte compte : this.comptes) {
+			if(compte.getRib().equals(rib))
+				return compte;
+		}
+		return null;
+	}
 
 	public Compte consulterCompte(String rib) {
 		return null;

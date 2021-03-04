@@ -1,6 +1,7 @@
 package com.wha.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import jakarta.servlet.ServletException;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import com.wha.dao.CompteDao;
 import com.wha.entities.Client;
 import com.wha.entities.Compte;
 import com.wha.entities.CompteBeneficiaire;
@@ -26,11 +28,11 @@ public class ClientServlet extends HttpServlet {
         super();
     }
     
-    private String getPath(HttpServletRequest request) {
-    	String tmp = null;
+    private String[] getPath(HttpServletRequest request) {
+    	String[] tmp = null;
     	String[] paths = request.getRequestURI().split("/");
     	if(paths.length > 3) {
-    		tmp = paths[3];
+    		tmp = paths;
     	}
     	return tmp;
     }
@@ -39,73 +41,71 @@ public class ClientServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	verifierTypeUtilisateur(request, response);
     	if(request.getSession(false) != null) {
 			HttpSession tmpSession = request.getSession(false);
 			if(getPath(request) != null) {
-				switch (getPath(request)) {
+				switch (getPath(request)[3]) {
 				case "nouveauVirement": {
 					//effectuerVirement(request, response);
-					redirect(request, response, "/accueilClient.jsp");
+					redirect(request, response, "/WEB-INF/accueils/client.jsp");
 					break;
 				}
 				case "supprimerConseiller":
-					redirect(request, response, "/accueilClient.jsp");
+					redirect(request, response, "/WEB-INF/accueils/client.jsp");
 					break;
 				case "ajouterCompteBeneficiaire":
-					redirect(request, response, "/accueilClient.jsp");
+					redirect(request, response, "/WEB-INF/accueils/client.jsp");
 					break;
 				default:
-					redirect(request, response, "/accueilClient.jsp");
+					redirect(request, response, "/WEB-INF/accueils/client.jsp");
 					break;
 			}
 			}else
-				redirect(request, response, "/accueilClient.jsp");
+				redirect(request, response, "/WEB-INF/accueils/client.jsp");
 		}else {
 			redirect(request, response, "/accueil.jsp");
 		}
     };
     
+    private Boolean verifierTypeUtilisateur(HttpSession session) throws ServletException, IOException {
+		Boolean tmp = false;
+		if(session.getAttribute("typeUtilisateur").equals("client"))
+			tmp = true;
+		return tmp;
+	}
+    
     /**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		verifierTypeUtilisateur(request, response);
-		if(request.getSession(false) != null) {
-			HttpSession tmpSession = request.getSession(false);
-			Client client = null;
-			if(getPath(request) != null) {
-				switch (getPath(request)) {
-					case "accueil":
-						client = (Client) tmpSession.getAttribute("utilisateur");
-						tmpSession.setAttribute("comptes", client.getComptes());
-						redirect(request, response, "/WEB-INF/accueils/client.jsp");
-						break;
-					case "comptes":
-						client = (Client) tmpSession.getAttribute("utilisateur");
-						tmpSession.setAttribute("comptes", client.getComptes());
-						redirect(request, response, "/accueilClient.jsp");
-						break;
-					case "compte":
-						break;
-				}
-			}else
-				redirect(request, response, "/accueilClient.jsp");
-		}else {
+		HttpSession tmpSession = request.getSession(false);
+		if(tmpSession != null) {
+			if(verifierTypeUtilisateur(tmpSession)) {
+				Client client = (Client) tmpSession.getAttribute("utilisateur");
+				if(getPath(request) != null) {
+					switch (getPath(request)[3]) {
+						case "accueil":
+							tmpSession.setAttribute("comptes", client.getComptes());
+							redirect(request, response, "/WEB-INF/accueils/client.jsp");
+							break;
+						case "comptes":
+							redirect(request, response, "/WEB-INF/accueils/client.jsp");
+							break;
+						case "compte":
+							String rib = getPath(request)[4];
+							Compte cpte = client.getCompte(rib);
+							tmpSession.setAttribute("compte", client.getCompte(rib));
+							//redirect(request, response, "/WEB-INF/");
+							System.out.println(cpte);
+							break;
+					}
+				}else
+				redirect(request, response, "/WEB-INF/accueils/client.jsp");
+			}else 
+				redirect(request, response, "/404.jsp");
+		}else
 			redirect(request, response, "/accueil.jsp");
-		}
     }
-	
-	private void verifierTypeUtilisateur(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
-		if (session == null) {
-			response.sendRedirect(request.getContextPath() + "/404.jsp");
-		}
-		String typeUtilisateur = (String) session.getAttribute("typeUtilisateur"); 
-		if (typeUtilisateur.equals("client")) {
-			response.sendRedirect(request.getContextPath() + "/404.jsp");
-		}
-	}
 	
 	private void redirect(HttpServletRequest request, HttpServletResponse response, String redir) throws IOException, ServletException {
 		this.getServletContext().getRequestDispatcher(redir).forward(request, response);
