@@ -4,7 +4,7 @@ pageEncoding="UTF-8"%>
 <html>
 
 <head>
-<title>Erreur de connexion !</title>
+<title>Accueil client</title>
 <meta http-equiv = "Content-Type" content="text/html; charset=UTF-8">
 <link rel="shortcut icon" type="image/ico" href="favicon.png.ico"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -20,20 +20,23 @@ pageEncoding="UTF-8"%>
 <script defer type="text/javascript" src="js/annotation.js"></script>
 </head>
 
-
 <body>
-
 <div class="container-fluid" style="background: linear-gradient(90deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
   <nav class="navbar navbar-light" style="background: linear-gradient(90deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
     <a class="navbar-brand" href="/GestiBank/accueil.jsp"><img class="spring" src="css/img/bank.svg" alt="" width="100" height="100"></a>
   </nav>
 </div>
+
+<a href = "<%= request.getContextPath()+ "/client.jsp" %>">Accueil</a>
+
+	<h2>Bonjour, ${ utilisateur.getPrenom() }</h2>
+
+	<ul>
+	<li><a href = "/GestiBank/client/pageClient.jsp">Mon espace client</a></li>
+	<li><a href = "">Contacter mon conseiller</a></li>
+	<li><a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a></li>
+	</ul>
 	
-<div class="text-center">
-	<h1>Vous êtes déconnecté(e) avec succès!</h1>
-	<img class="spring" src="css/img/deco.svg" alt="" width="100" height="100"></br>
-	<a class="btn btn-success" type="button" href="<%=request.getContextPath() + "/accueil.jsp"%>">Retour à l'accueil</a>
-</div>
 
 </body>
 </html>

@@ -32,9 +32,9 @@
     <div class="container register">          
       <div class="row">
       <div class="tab-content col-md-3 register-left">
-          <img class="animate-boing" src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-          <h3>Bienvenue</h3>
-          <p>Accèdez à votre espace Client</p>
+          <img class="animate-boing" src="css/img/people.svg" alt=""/>
+          <h3>Bienvenue sur votre Espace</h3>
+          <p>un accès ultra rapide à vos comptes en quelques clics</p>
           <a class="btn btn-form btn-form-success" href="<%=request.getContextPath()%>">Retour à l'accueil</a><br/>
       </div>
         

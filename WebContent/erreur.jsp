@@ -30,9 +30,9 @@ pageEncoding="UTF-8"%>
 </div>
 	
 <div class="text-center">
-	<h1>Vous êtes déconnecté(e) avec succès!</h1>
-	<img class="spring" src="css/img/deco.svg" alt="" width="100" height="100"></br>
-	<a class="btn btn-success" type="button" href="<%=request.getContextPath() + "/accueil.jsp"%>">Retour à l'accueil</a>
+	<h1>Quelques choses c'est mal passé @#!</h1>
+	<img class="spring" src="css/img/error.svg" alt="" width="100" height="100"></br>
+	<a class="btn btn-success" type="button" href="<%=request.getContextPath() + "/connexion.jsp"%>">Se reconnecter</a>
 </div>
 
 </body>

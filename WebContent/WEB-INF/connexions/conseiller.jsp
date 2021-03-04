@@ -1,6 +1,6 @@
 <!-- formulaire de connexion conseiller -->
 <div class="section-form tab-pane fade show tab-conseiller" role="tabpanel">               
-  <h3 class="register-heading">Connexion Conseiller</h3>
+  <h3 class="register-heading">Conseiller, Connectez-Vous...</h3>
 
   <form class="row register-form needs-validation col-md-12" novalidate action="traiterlogin" method="POST">
         <input type="hidden" name="whois" value="conseiller">

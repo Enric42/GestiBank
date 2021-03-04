@@ -70,9 +70,12 @@
     border-radius: 1.5rem;
     border: 0;
     margin: 2px;
+    cursor: pointer;
 }
 .register .nav-tabs .nav-link:hover {
     padding: 2px 12px 4px;
+    background: #fff;
+    color: #0062cc
 }
 .register .nav-tabs .nav-link.active {
     color: #0062cc;

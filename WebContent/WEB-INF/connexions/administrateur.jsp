@@ -1,6 +1,6 @@
 <!-- formulaire de connexion administrateur -->
 <div class="section-form tab-pane fade show tab-administrateur" role="tabpanel">               
-  <h3 class="register-heading">Connexion Administrateur</h3>
+  <h3 class="register-heading">Admin, Connectez-Vous...</h3>
 
   <form class="row register-form needs-validation col-md-12" novalidate action="traiterlogin" method="POST">
         <input type="hidden" name="whois" value="administrateur">
