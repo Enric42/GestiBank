@@ -24,7 +24,7 @@ create table agent(
 create table client(
 	id_utilisateur int primary key,
 	isValid bit not null default 'false',
-	agent_utilisateur_id int not null,
+	agent_utilisateur_id int null,
 	nbEnfant tinyint not null default 0,
 	adresse varchar(255) not null default 'defaultAdresse',
 	nom varchar(255) not null default 'defaultName',
