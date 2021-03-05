@@ -1,12 +1,24 @@
 package com.wha.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.wha.dao.ClientDao;
+import com.wha.dao.CompteDao;
+import com.wha.dao.ConseillerDao;
+import com.wha.dao.AdministrateurDao;
+import com.wha.entities.Client;
+import com.wha.entities.Compte;
+import com.wha.entities.Conseiller;
+import com.wha.entities.Administrateur;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = {"/connection/*"})
 public class traiterLoginServlet extends HttpServlet {
@@ -17,39 +29,90 @@ public class traiterLoginServlet extends HttpServlet {
      */
     public traiterLoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        System.out.println("testé");
     }
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		String identifiant = (String) request.getParameter("login");			// Utilisateur à saisir
-		String motDePasse = (String) request.getParameter("motDePasse");		// Mot de passe à saisir
+      //binder accueilconseiller.jsp to /WEB-INF/accueils/conseiller.jsp
+	  //binder accueilconseiller.jsp to /WEB-INF/accueils/administrateur.jsp
+	  //binder accueilconseiller.jsp to /WEB-INF/accueils/client.jsp
+    
+    
+    @Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		String identifiant = (String) request.getParameter("login");
+		String motDePasse = (String) request.getParameter("motDePasse");
+		String typeUtilisateur = (String) request.getParameter("whois");
 		
-		if (identifiant.equals("client") && motDePasse.equals("client"))
-		{
-			System.out.println("Connexion réussie. Bienvenue " + identifiant);			//Si client, renvoi vers page client
-			response.sendRedirect(request.getContextPath() + "/accueilClient.jsp");			
-		}
-		
-		else if (identifiant.equals("conseil") && motDePasse.equals("conseil"))
-		{
-			System.out.println("Connexion réussie. Bienvenue " + identifiant);			////Si conseiller, renvoi vers page conseiller
-			response.sendRedirect(request.getContextPath() + "/accueilConseiller.jsp");			
-		}
-		
-		else if (identifiant.equals("admin") && motDePasse.equals("admin"))
-		{
-			System.out.println("Connexion réussie. Bienvenue " + identifiant);			////Si administrateur, renvoi vers page admin
-			response.sendRedirect(request.getContextPath() + "/accueilAdmin.jsp");			
-		}
-		
-		else
-		{
-			System.out.println("Connexion impossible : identifiant ou mot de passe incorrect");		// Si pas ok
-			response.sendRedirect(request.getContextPath() + "/erreur.html");
+		switch(typeUtilisateur) {
+			case "administrateur":
+				AdministrateurDao administrateurDao = new AdministrateurDao();
+				Administrateur administrateur = null;
+				try {
+					administrateur = administrateurDao.getAdministrateurByLogin(identifiant, motDePasse);
+				} catch (SQLException e2) {
+					e2.printStackTrace();
+				}
+				if (administrateur == null) {
+					redirigerPageErreurConnexion(request, response);
+				}
+				else {
+					HttpSession session = request.getSession(true);
+					session.setAttribute("typeUtilisateur", "administrateur");
+					session.setAttribute("utilisateur", administrateur);
+					System.out.println("Connexion de l'administrateur réussie. Bienvenue " + identifiant);
+					response.sendRedirect(request.getContextPath() + "/administrateur/accueil");
+				}
+				break;
+			case "conseiller":
+				ConseillerDao conseillerDao = new ConseillerDao();
+				Conseiller conseiller = null;
+				try {
+					conseiller = conseillerDao.getConseillerByLogin(identifiant, motDePasse);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				if (conseiller == null) {
+					redirigerPageErreurConnexion(request, response);
+				}
+				else {
+					HttpSession session = request.getSession(true);
+					session.setAttribute("typeUtilisateur", "conseiller");
+					session.setAttribute("utilisateur", conseiller);
+					System.out.println("Connexion du conseiller réussie. Bienvenue " + identifiant);
+					response.sendRedirect(request.getContextPath() + "/conseiller/accueil");
+				}
+				break;
+			default:
+				ClientDao clientDao = new ClientDao();
+				Client client = null;
+				try {
+					client = clientDao.getClientByLogin(identifiant, motDePasse);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				if (client == null) {
+					redirigerPageErreurConnexion(request, response);
+				}
+				else {
+					HttpSession session = request.getSession(true);
+					CompteDao cpteDao = new CompteDao();
+					List<Compte> comptes = null;
+					try {
+						comptes = cpteDao.loadCompteByClientId(client);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					client.setComptes(comptes);
+					session.setAttribute("typeUtilisateur", "client");
+					session.setAttribute("utilisateur", client);
+					System.out.println("Connexion de l'utilisateur réussie. Bienvenue " + identifiant);
+					response.sendRedirect(request.getContextPath() + "/client/accueil");
+				}
 		}
 	}
-
-
+    
+    private void redirigerPageErreurConnexion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("Connexion impossible : identifiant ou mot de passe incorrect");
+		response.sendRedirect(request.getContextPath() + "/erreur.jsp");
+    }
 }

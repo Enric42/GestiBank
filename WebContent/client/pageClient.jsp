@@ -5,7 +5,7 @@ pageEncoding="ISO-8859-1"%>
 <html>
 
 <head>
-<meta http-equiv = "Content-Type" content="text/html; charset="ISO-8859-1">
+<meta http-equiv = "Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Synthèse client</title>
 </head>
@@ -13,10 +13,9 @@ pageEncoding="ISO-8859-1"%>
 
 <body>
 
-<a href = "/GestiBank/accueilClient.jsp">Accueil</a> </br>
+<a href = "/GestiBank/accueilClient.jsp">Accueil</a>
 
-<% String pseudo = (String) session.getAttribute("utilisateur");%>
-	<h2>Bonjour, <%= pseudo %></h2>
+	<h2>Bonjour, ${ utilisateur.getPrenom() }</h2>
 
 
 	<ul>
@@ -25,21 +24,20 @@ pageEncoding="ISO-8859-1"%>
 	<li><a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a></li>
 	</ul>
 	
-<p>
+
 <ul>
 <li><a href = "/GestiBank/client/virement.jsp">Effectuer un virement</a></li>
 <li><a href = "">Demande de chéquier</a></li>
 <li><a href = "">Editer un RIB</a></li>
 </ul>	
-</p>
 
-<p>
+
+
 <h1>Synthèse des comptes</h1>
 <ul>
 <li><a href = "/GestiBank/client/compte1.jsp">Compte dépot n°123456</a></li>
-<li>Compte dépot n°32154</a></li>
+<li>Compte dépot n°32154</li>
 </ul>
-</p>
 
 </body>
 

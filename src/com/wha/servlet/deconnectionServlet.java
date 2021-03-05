@@ -17,7 +17,8 @@ public class deconnectionServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-   
+
+	@Override
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		HttpSession session = request.getSession(false);
@@ -27,10 +28,11 @@ public class deconnectionServlet extends HttpServlet {
 		System.out.println("redirigé vers la fin.jsp");
 	}
 		
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-		{
-			service(request, response);     
-		}
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		service(request, response);     
+	}
 		
 	}
 

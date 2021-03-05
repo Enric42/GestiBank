@@ -1,0 +1,169 @@
+ 
+.form-group{
+    padding: 2%;
+}
+
+.register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 3%;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    width: 25%;
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.register .nav-tabs {
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    float: right;
+}
+.register .nav-tabs .nav-link {
+    padding: 3px 12px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 1.5rem;
+    border: 0;
+    margin: 2px;
+    cursor: pointer;
+}
+.register .nav-tabs .nav-link:hover {
+    padding: 2px 12px 4px;
+    background: #fff;
+    color: #0062cc
+}
+.register .nav-tabs .nav-link.active {
+    color: #0062cc;
+}
+
+.register-heading {
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+
+.btn-form{
+	margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 46%;
+    cursor: pointer;
+}
+
+.btn-form-success {
+	background: #198754;
+    color: #fff;
+}
+.btn-form-success:hover {
+    background: #36eb97;
+    color: black;
+}
+
+.btn-form-reset {
+    background: #0062cc;
+    color: #fff;
+}
+.btn-form-reset:hover {
+    background: #7e807e;
+    color: black;
+}
+
+.f-left {
+	float: left;
+}
+
+.f-right {
+	float: right;
+}
+
+.m-10 {
+	margin: 10px;
+}
+
+.m-2p {
+	margin: 2%;
+}
+
+.espace-client {
+	padding-top: .5rem;
+	margin-top: -10%;
+    color: WHITE;
+    background: linear-gradient(50deg, rgba(255,224,0,1) 50%,#00c6ff 100%);
+    border-radius: 1.5rem;
+}
+
+.espace-conseiller {
+	padding-top: .5rem;
+	margin-top: -10%;
+    color: WHITE;
+    background: linear-gradient(50deg, rgba(255,165,0,1) 50%,#00c6ff 100%);
+    border-radius: 1.5rem;
+}
+
+.espace-admin {
+	padding-top: .5rem;
+	margin-top: -10%;
+    color: WHITE;
+    background: linear-gradient(50deg, rgba(242,73,118,1) 50%,#00c6ff 100%);
+    border-radius: 1.5rem;
+}
+
+.back {
+	margin-top: -10%;
+}
+
+.test {
+	background-image: url("https://businessattitude.fr/wp-content/uploads/2020/07/bourse-illustration.png");
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}

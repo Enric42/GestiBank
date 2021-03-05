@@ -1,2 +1,9 @@
 /build/
 /target/
+/.settings/
+/.classpath
+/.metadata
+/.settings/org.eclipse.wst.common.component
+/bin/
+/.project
+/.settings/org.eclipse.m2e.core.prefs

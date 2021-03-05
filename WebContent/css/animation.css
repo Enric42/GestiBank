@@ -1,0 +1,118 @@
+/* Animation logo accueil */
+@keyframes spring { 
+  0% { transform: scale(1) translateY(0); }
+  3% { transform: scale(1.2, 0.6); }
+  5% { transform: scale(0.8, 1.1) translateY(-10px); }
+  8% { transform: scale(1) translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+.spring {
+  animation: spring 9s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+/* Animation logo GestiBank */
+@keyframes ease-out-scale {
+  0% {
+    opacity: 0;
+    transform: scale(0)
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    opacity: 0;
+    transform: translate(0, -40%)
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)
+  }
+}
+
+.anim {
+  opacity: 0
+}
+.anim-1 {
+  animation: slide-in-top 0.4s 2.5s 1 ease-in-out forwards
+}
+.anim-2 {
+  animation: slide-in-top 0.4s 3s 1 ease-in-out forwards
+}
+.anim-3 {
+  animation: slide-in-top 0.4s 3.5s 1 ease-in-out forwards
+}
+.anim-4 {
+  animation: slide-in-top 0.4s 4s 1 ease-in-out forwards
+}
+.anim-5 {
+  animation: slide-in-top 0.4s 4.5s 1 ease-in-out forwards
+}
+.anim-6 {
+  animation: slide-in-top 0.4s 1s 1 ease-in-out forwards
+}
+/* Animation Bubules marrantes */
+.circle {
+  --bgc: cornflowerblue;
+  --w: 20px;
+  align-items: center;
+  background-color: var(--bgc);
+  border-radius: 50%;
+  color: #FFF;
+  display: flex;
+  height: var(--w);
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: var(--w);
+  margin-left: 49.5%;
+}
+
+.a-slide {
+  --animdur: 1s;
+  --animn: slide;
+  animation-iteration-count: 2e;
+}
+[data-animation] {
+  animation: var(--animn, none) var(--animdur, 0s) var(--animtf, linear) var(--animdel, 0s) var(--animic, infinite) var(--animdir, alternate) var(--animfm, none) var(--animps, running);
+}
+
+[data-reduced-motion]:checked ~ [data-animation="one"] {
+  --animic: 1;
+}
+[data-reduced-motion]:checked ~ [data-animation="two"] {
+  --animic: 3;
+}
+[data-reduced-motion]:checked ~ [data-animation="three"] {
+  --animic: 6;
+}
+[data-reduced-motion]:checked ~ [data-animation="four"] {
+  --animic: 9;
+}
+[data-reduced-motion]:checked ~ [data-animation="five"] {
+  --animic: 12;
+}
+
+@keyframes slide {
+  from { margin-left: 0%; }
+  to { margin-left: calc(100% - var(--w, 20px)); }
+}
+
+/* animation fusée */
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+.animate-boing {
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}

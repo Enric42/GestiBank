@@ -5,7 +5,7 @@ pageEncoding="ISO-8859-1"%>
 <html>
 
 <head>
-<meta http-equiv = "Content-Type" content="text/html; charset="ISO-8859-1">
+<meta http-equiv = "Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Edition de clients</title>
 </head>
@@ -13,23 +13,23 @@ pageEncoding="ISO-8859-1"%>
 
 <body>
 
-<a href = "/GestiBank/accueilConseiller.jsp">Accueil</a> </br>
+<a href = "/GestiBank/accueilConseiller.jsp">Accueil</a>
 <a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a>
 
 <% String pseudo = (String) session.getAttribute("utilisateur");%>
-	<h2>Bonjour, <%= pseudo %></h2> </br>
+	<h2>Bonjour, <%= pseudo %></h2>
 
 
-<p>
+
 	<ul>
-	<li>Client n 09669</a></li>
+	<li>Client n 09669</li>
 	<li> Emma Nuhelle</li>
 	<li>16 chemin de la chaise</li>
     <li><a href = "/GestiBank/conseiller/edition-client.jsp">Editer</a></li>
 	</ul>
-</p>
 
-<p>
+
+
 	<ul>
 	<li>Compte n 123456</li>
 	<li>Compte standard</li>
@@ -37,7 +37,7 @@ pageEncoding="ISO-8859-1"%>
     <li><a href = "/GestiBank/client/compte1.jsp">Voir le détail</a></li>
     <li>Modifier</li>
 	</ul>
-</p>
+
 
 <a href = "/GestiBank/conseiller/listeClients.jsp">Liste des clients</a>
 
