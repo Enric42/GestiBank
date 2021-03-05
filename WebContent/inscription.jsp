@@ -21,19 +21,19 @@ pageEncoding="UTF-8"%>
 
 <body>
 
-<div class="container-fluid" style="background: linear-gradient(90deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
-	<nav class="navbar navbar-light" style="background: linear-gradient(90deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
+<div class="container-fluid" style="background: linear-gradient(50deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
+	<nav class="navbar navbar-light" style="background: linear-gradient(50deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
  			<a class="navbar-brand" href="/GestiBank/accueil.jsp"><img class="spring" src="css/img/bank.svg" alt="" width="100" height="100"></a>
    	</nav>
 </div>	
 <div class="container register anim anim-6">
                 <div class="row">
                     <div class="col-md-3 register-left">
-                        <img src="<%=request.getContextPath()%>/css/img/cash.svg" alt=""/>
+                        <img class="animate-boing" src="<%=request.getContextPath()%>/css/img/cash.svg" alt=""/>
                         <h3>GestiBank</h3>
                         <p>une inscription rapide en 30 secondes pour gagner de l'argent !</p>
-                        <a class="btn btn-form btn-form-success" href="<%=request.getContextPath()%>">Retour à l'accueil</a><br/>
-                    </div>
+          <a class="btn btn-form btn-form-success back" href="<%=request.getContextPath()%>"><img src="css/img/back.svg" height="50px" width="50px" alt=""/></br>Accueil</a><br/>
+      </div>
                     <div class="col-md-8 register-right">
 							<h3 class="register-heading">Formulaire d'inscription</h3>
                                 <form class="needs-validation" novalidate>

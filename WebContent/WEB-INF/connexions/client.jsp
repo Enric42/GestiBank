@@ -1,9 +1,11 @@
 <!-- formulaire de connexion client -->
 <div class="section-form tab-pane fade show active tab-client" role="tabpanel">               
-  <h3 class="register-heading">Connectez-Vous...</h3>
 
 
   	<form class="row register-form needs-validation col-md-12" novalidate action="traiterlogin" method="POST">
+  	  <div class="text-center espace-client">
+  		<h2>Espace Client <img src="css/img/client.svg" height="80px" widht="80px" alt=""/></h2>
+  	  </div>
 
 
         <input type="hidden" name="whois" value="client">

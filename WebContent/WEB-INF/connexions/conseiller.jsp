@@ -1,8 +1,10 @@
 <!-- formulaire de connexion conseiller -->
 <div class="section-form tab-pane fade show tab-conseiller" role="tabpanel">               
-  <h3 class="register-heading">Conseiller, Connectez-Vous...</h3>
 
   <form class="row register-form needs-validation col-md-12" novalidate action="traiterlogin" method="POST">
+      <div class="text-center espace-conseiller">
+  		<h3>Espace Conseiller <img src="css/img/conseiller.svg" height="80px" widht="80px" alt=""/></h3>
+  	  </div>
         <input type="hidden" name="whois" value="conseiller">
         <div class="form-group position-relative">
           <label for="validationTooltipConseiller01" class="form-label">Identifiant</label>

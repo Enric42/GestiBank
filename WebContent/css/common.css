@@ -31,8 +31,6 @@
     border-bottom-left-radius: 10% 50%;
 }
 .register-left img{
-    margin-top: 15%;
-    margin-bottom: 5%;
     width: 25%;
 }
 .register-left p{
@@ -132,4 +130,40 @@
 
 .m-2p {
 	margin: 2%;
+}
+
+.espace-client {
+	padding-top: .5rem;
+	margin-top: -10%;
+    color: WHITE;
+    background: linear-gradient(50deg, rgba(255,224,0,1) 50%,#00c6ff 100%);
+    border-radius: 1.5rem;
+}
+
+.espace-conseiller {
+	padding-top: .5rem;
+	margin-top: -10%;
+    color: WHITE;
+    background: linear-gradient(50deg, rgba(255,165,0,1) 50%,#00c6ff 100%);
+    border-radius: 1.5rem;
+}
+
+.espace-admin {
+	padding-top: .5rem;
+	margin-top: -10%;
+    color: WHITE;
+    background: linear-gradient(50deg, rgba(242,73,118,1) 50%,#00c6ff 100%);
+    border-radius: 1.5rem;
+}
+
+.back {
+	margin-top: -10%;
+}
+
+.test {
+	background-image: url("https://businessattitude.fr/wp-content/uploads/2020/07/bourse-illustration.png");
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }

@@ -1,8 +1,10 @@
 <!-- formulaire de connexion administrateur -->
 <div class="section-form tab-pane fade show tab-administrateur" role="tabpanel">               
-  <h3 class="register-heading">Admin, Connectez-Vous...</h3>
 
   <form class="row register-form needs-validation col-md-12" novalidate action="traiterlogin" method="POST">
+      <div class="text-center espace-admin">
+  		<h3>Espace Administrateur <img src="css/img/admin.svg" height="80px" widht="80px" alt=""/></h3>
+  	  </div>
         <input type="hidden" name="whois" value="administrateur">
         <div class="form-group position-relative">
           <label for="validationTooltipAdministrateur01" class="form-label">Identifiant</label>

@@ -19,10 +19,10 @@ pageEncoding="UTF-8"%>
 <script defer type="text/javascript" src="js/annotation.js"></script>
 </head>
 
-<body>
+<body class="test">
 
-<div class="container-fluid" style="background: linear-gradient(90deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
-	<nav class="navbar navbar-light" style="background: linear-gradient(90deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
+<div class="container-fluid" style="background: linear-gradient(50deg, rgba(25,135,84,0.5) 0%, rgba(71,110,145,0.5) 39%, rgba(13,110,253,0.5) 100%)">
+	<nav class="navbar navbar-light">
  			<a class="navbar-brand" href="/GestiBank/accueil.jsp"><img class="spring" src="css/img/bank.svg" alt="" width="100" height="100"></a>
    				<ul class="nav nav-pills">
   					<li class="nav-item">
@@ -36,31 +36,33 @@ pageEncoding="UTF-8"%>
   					</ul>
    	</nav>
 </div>
+<!--<div class="test">-->
 
 		<div class="text-center anim anim-1" style="padding-top: 5%">
 			<h1 style="font-family: Roboto; font-weight: 900; font-style: italic">
-			<span style="color: #198754">Gesti</span>
-			<span style="color: #0d6efd">Bank</span>
+			<span style="color: #198754; text-shadow: 2px 2px 2px white;">Gesti</span>
+			<span style="color: #0d6efd; text-shadow: 2px 2px 2px white;">Bank</span>
 			</h1>
 		</div>
 
   <div class="circle a-slide" data-animation="one" style="--animdel:100ms;--animic: 1.5;"></div>
   		<div class="text-center anim anim-2">
-			<h2 style="color: black; font-family: Courgette">Rapidité 🚀</h2>
+			<h2 style="color: black; text-shadow: 2px 2px 2px white; font-family: Courgette">Rapidité 🚀</h2>
 		</div>
   <div class="circle a-slide" data-animation="two" style="--bgc:green;--animdel:300ms;--animic: 1.5;"></div>
   		<div class="text-center anim anim-3">
-			<h2 style="color: black; font-family: Courgette">Sécurité 🔐</h2>
+			<h2 style="color: black; text-shadow: 2px 2px 2px white; font-family: Courgette">Sécurité 🔐</h2>
 		</div>
   <div class="circle a-slide" data-animation="third" style="--animdel:500ms;--animic: 1.5;"></div>
   		<div class="text-center anim anim-4">
-			<h2 style="color: black; font-family: Courgette">Performance 📈</h2>
+			<h2 style="color: black; text-shadow: 2px 2px 2px white; font-family: Courgette">Performance 📈</h2>
 		</div>
   <div class="circle a-slide" data-animation="four" style="--bgc:green;--animdel:700ms;--animic: 1.5;"></div>
   		<div class="text-center anim anim-5">
-			<h2 style="color: black; font-family: Courgette">Qu'attendez-vous ?</h2>
+			<h2 style="color: black; text-shadow: 2px 2px 2px whitek; font-family: Courgette">Qu'attendez-vous ?</h2>
 		</div>
   <div class="circle a-slide" data-animation="five" style="--animdel:900ms;--animic: 1.5;"></div>
-
+  
+<!--</div>-->
 </body>
  </html>
