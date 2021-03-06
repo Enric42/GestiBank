@@ -79,7 +79,7 @@ public class ClientDao implements IDao<Client>{
 		ResultSet result = IDao.connect.createStatement().executeQuery(
 				"select c.*, u.* from utilisateurs u inner join client c on u.id = c.id_utilisateur where c.agent_utilisateur_id is null"
 			);
-		if(result.next()) {
+		while(result.next()) {
 			tmp = new Client(
 					result.getInt("id_utilisateur"),
 					result.getString("nom"),

@@ -32,7 +32,7 @@ pageEncoding="UTF-8"%>
 <a href = "<%=request.getContextPath() + "/administrateur.jsp" %>">Accueil</a>
 <a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a>
 
-	<h1>Bonjour, ${ utilisateur.getPrenom() }</h1>
+	<h1>Bonjour, administrateur !</h1>
 	
 	<h2>Gestion des conseillers</h2>
 	<ul>
@@ -43,17 +43,16 @@ pageEncoding="UTF-8"%>
 
 <h2>Gestion des nouveaux clients</h2>
 	<ul>
-	<li>Assigner</li>
-	</ul>
-
-	<% ArrayList<Client> clients = (ArrayList<Client>) session.getAttribute("prospects");
+	<% ArrayList<Client> clients = (ArrayList<Client>) request.getAttribute("prospects");
 		for (Client client : clients) {
         %>
-          <a href="<%=request.getContextPath() %>/client/<%= client.getId() %>">
-          	Client numéro <%= client.getId() %>
-          </a>
+           <li>
+          	<div>Client numéro <%= client.getId() %></div>
+          	<div>Nom : <%= client.getNom() %></div>
+          	<div>Prenom : <%= client.getPrenom() %></div>
+          </li>
           <br/><br/>
         <%}%>
-
+	</ul>
 </body>
 </html>
