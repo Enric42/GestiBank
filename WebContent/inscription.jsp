@@ -36,7 +36,7 @@ pageEncoding="UTF-8"%>
       </div>
                     <div class="col-md-8 register-right">
 							<h3 class="register-heading">Formulaire d'inscription</h3>
-                                <form class="needs-validation" novalidate>
+                                <form class="needs-validation" novalidate action="<%=request.getContextPath()%>/public/inscription" method="POST" >
                                 
                                 <div class="row register-form">
                                     <div class="col-md-6">
