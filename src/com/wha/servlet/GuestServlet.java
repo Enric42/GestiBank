@@ -30,16 +30,19 @@ public class GuestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String path = request.getRequestURI();
-		switch (path) {
-			case "/public/inscription":
+		System.out.println(path);
+		switch (request.getRequestURI().split("/")[3]) {
+			case "inscription" :
+				System.out.println("inscription");
 				sInscrire(request, response);
 				break;
 			case "/public/convertir":
 				convertirDevise(request,response);
 				break;
 			default:
+				System.out.println("404");
 				redirigerPage404(request, response);
-		}
+				}
 		// TODO switch
 		/*
 		if (path == "/administrateur/creerConseiller") {

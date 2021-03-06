@@ -73,10 +73,27 @@ public class ClientDao implements IDao<Client>{
 		return prospects;
 	}
 
-	public List<Client> loadProspectsWithoutConseiller() {
-		// isValid == false
-		List<Client> prospects = new ArrayList<Client>();
-		return prospects;
+	public List<Client> loadProspectsWithoutConseiller() throws SQLException{
+		List<Client> inscriptionsClient = new ArrayList<Client>();
+		Client tmp = null;
+		ResultSet result = IDao.connect.createStatement().executeQuery(
+				"select c.*, u.* from utilisateurs u inner join client c on u.id = c.id_utilisateur where c.agent_utilisateur_id is null"
+			);
+		if(result.next()) {
+			tmp = new Client(
+					result.getInt("id_utilisateur"),
+					result.getString("nom"),
+					result.getString("password"),
+					result.getString("prenom"),
+					result.getString("telephone"),
+					result.getString("mail"),
+					result.getString("adresse"),
+					result.getBoolean("isValid"),
+					0
+				);
+			inscriptionsClient.add(tmp);
+		}
+		return inscriptionsClient;		
 	}
 
 	@Override

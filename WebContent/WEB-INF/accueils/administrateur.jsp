@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@page import="com.wha.entities.*" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 
@@ -23,30 +25,35 @@ pageEncoding="UTF-8"%>
 <body>
 <div class="container-fluid" style="background: linear-gradient(90deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
   <nav class="navbar navbar-light" style="background: linear-gradient(90deg, rgba(25,135,84,1) 0%, rgba(71,110,145,1) 39%, rgba(13,110,253,1) 100%)">
-    <a class="navbar-brand" href="/GestiBank/accueil.jsp"><img class="spring" src="css/img/bank.svg" alt="" width="100" height="100"></a>
+    <a class="navbar-brand" href="/GestiBank/accueil.jsp"><img class="spring" src="<%= request.getContextPath()+ "css/img/bank.svg"%>" alt="" width="100" height="100"></a>
   </nav>
 </div>
 
 <a href = "<%=request.getContextPath() + "/administrateur.jsp" %>">Accueil</a>
 <a href = "<%=request.getContextPath() + "/fin.jsp"%>">Se déconnecter</a>
 
-	<h1>Bonjour Connard</h1>
+	<h1>Bonjour, ${ utilisateur.getPrenom() }</h1>
 	
-	<h1>Gestion des conseillers</h1>
+	<h2>Gestion des conseillers</h2>
 	<ul>
 	<li>Tous</li>
 	<li><a href = "/GestiBank/admin/listeConseillers.jsp">Editer</a></li>
 	<li><a href = "/GestiBank/admin/ajout-conseiller.jsp">Ajouter</a></li>
 	</ul>
 
-<h1>Gestion des nouveaux clients</h1>
+<h2>Gestion des nouveaux clients</h2>
 	<ul>
 	<li>Assigner</li>
 	</ul>
 
-	
-
-
+	<% ArrayList<Client> clients = (ArrayList<Client>) session.getAttribute("prospects");
+		for (Client client : clients) {
+        %>
+          <a href="<%=request.getContextPath() %>/client/<%= client.getId() %>">
+          	Client numéro <%= client.getId() %>
+          </a>
+          <br/><br/>
+        <%}%>
 
 </body>
 </html>
