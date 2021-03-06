@@ -1,12 +1,14 @@
 package com.wha.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.wha.dao.ClientDao;
 import com.wha.dao.ConseillerDao;
 import com.wha.entities.Administrateur;
+import com.wha.entities.Client;
 import com.wha.entities.Conseiller;
 
 import jakarta.servlet.RequestDispatcher;
@@ -61,6 +63,13 @@ public class AdministrateurServlet extends AServlet {
 				if(getPath(request) != null) {
 					switch (getPath(request)[3]) {
 						case "accueil":
+							List<Client> inscriptions = new ArrayList<Client>();
+							ClientDao clientDao = new ClientDao();
+							try {
+								request.setAttribute("prospects", clientDao.loadProspectsWithoutConseiller());
+							} catch (SQLException e) {
+								e.printStackTrace();
+							}
 							redirect(request, response, "/WEB-INF/accueils/administrateur.jsp");
 							break;
 						default:
